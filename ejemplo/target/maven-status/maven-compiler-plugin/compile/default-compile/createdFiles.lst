@@ -23,6 +23,7 @@ poclibreria\gui\VentanaActualizar$10.class
 poclibreria\gui\VentanaActualizar$8.class
 libreria\Libreria.class
 poclibreria\gui\GuiPrincipal$3.class
+poclibreria\Modelo\Libreria.class
 poclibreria\gui\VentanaContarRegistro.class
 poclibreria\gui\VentanaActualizar$5.class
 poclibreria\gui\VentanaEliminar.class
