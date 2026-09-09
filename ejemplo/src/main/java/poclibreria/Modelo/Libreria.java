@@ -3,10 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package poclibreria.Modelo;
-/**
- *
- * @author delva
- */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +11,16 @@ public class Libreria {
     private int idLibreria;
     private String nombre;
     private String direccion;
-    private List<Libro> inventario;
+    
+    // La lista de tipo Inventario ahora se llama "libreria"
+    private List<Libreria> libreria;
 
     public Libreria(int idLibreria, String nombre, String direccion) {
         this.idLibreria = idLibreria;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.inventario = new ArrayList<>();
+        // Inicializamos la nueva lista "libreria"
+        this.libreria = new ArrayList<>();
     }
 
     // Métodos Getters y Setters
@@ -48,16 +48,17 @@ public class Libreria {
         this.direccion = direccion;
     }
 
-    public List<Libro> getInventario() {
-        return inventario;
+    // Getter y Setter adaptados al nuevo nombre "libreria"
+    public List<Libreria> getLibreria() {
+        return libreria;
     }
 
-    public void setInventario(List<Libro> inventario) {
-        this.inventario = inventario;
+    public void setLibreria(List<Libreria> libreria) {
+        this.libreria = libreria;
     }
 
-    // Métodos de negocio de la librería
-    public void agregarLibro(Libro libro) {
-        this.inventario.add(libro);
+    // Método de negocio que agrega a la lista "libreria"
+    public void agregarInventario(Libreria item) {
+        this.libreria.add(item);
     }
-}
+} // <-- Esta es la llave de cierre de la clase que te faltaba
