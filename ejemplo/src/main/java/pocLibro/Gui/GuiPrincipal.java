@@ -15,7 +15,7 @@ import pocLibro.Gui.VentanaActualizar;
 import poclibreria.gui.VentanaAgregarLibreria;
 import poclibreria.gui.VentanaBuscarLibreria;
 import poclibreria.gui.VentanaListadoLibreria;
-
+import poclibreria.gui.VentanaContarRegistroLibreria;
 
 
 
@@ -53,6 +53,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
         SubMenuBuscar = new javax.swing.JMenuItem();
         SubMenuEliminar = new javax.swing.JMenuItem();
         SubMenuListar = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         SubMenuAcerdaDe = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -152,6 +153,14 @@ public class GuiPrincipal extends javax.swing.JFrame {
         });
         Libreria.add(SubMenuListar);
 
+        jMenuItem9.setText("Contar Libreria");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        Libreria.add(jMenuItem9);
+
         jMenuBar1.add(Libreria);
 
         SubMenuAcerdaDe.setText("Ayuda");
@@ -240,6 +249,11 @@ public class GuiPrincipal extends javax.swing.JFrame {
     vListado.setVisible(true);
     }//GEN-LAST:event_SubMenuListarActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+      VentanaContarRegistroLibreria vContar = new VentanaContarRegistroLibreria();
+      vContar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Libreria;
@@ -258,5 +272,6 @@ public class GuiPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

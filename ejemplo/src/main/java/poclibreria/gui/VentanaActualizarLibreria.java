@@ -46,7 +46,7 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         butActulizado = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(this::btnBuscarActionPerformed);
@@ -178,13 +178,15 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
                 textPresupuesto.setEnabled(true);
                 txtCategoria.setText(String.valueOf(libreria.getPresupuesto()));
                 if (libreria.isEstado()){
-                    
+                     checkDisponible.setSelected(true);
+                     checkNoDisponible.setSelected(false);
                 }
                 else{
-                    
+                    checkDisponible.setSelected(false);
+                     checkNoDisponible.setSelected(true);
                 }
                 
-                btnActualizar.setEnabled(true);
+                butActulizado.setEnabled(true);
                 encontrado = true;
             } else {
                 textnombre.setText("");
@@ -192,8 +194,9 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
                 textPresupuesto.setText("");
                 textPresupuesto.setEnabled(false);
                 txtCategoria.setText("");
-                txtEstado.setText("");
-                btnActualizar.setEnabled(false);
+                checkDisponible.isSelected();
+                checkNoDisponible.
+                butActulizado.setEnabled(false);
                 encontrado = false;
                 JOptionPane.showMessageDialog(this, "Inventario No encontrado.");
             }

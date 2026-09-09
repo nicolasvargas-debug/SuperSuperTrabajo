@@ -227,7 +227,7 @@ public class VentanaEliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_ButEliminarActionPerformed
 
     private void butSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSalir1ActionPerformed
-        // TODO add your handling code here:
+       this.dispose();
     }//GEN-LAST:event_butSalir1ActionPerformed
 
     private void ButBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButBuscarActionPerformed
