@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package libreria;
-import poclibreria.gui.GuiPrincipal;
+import pocLibro.Gui.GuiPrincipal;
 /**
  *
  * @author nikol

@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package poclibreria.gui;
+package pocLibro.Gui;
 
 import javax.swing.JOptionPane;
 import pocLibreria.Servicios.ServiciosLibreria;
-import poclibreria.gui.VentanaBuscar;
-import poclibreria.gui.VentanaAgregar;
-import poclibreria.gui.VentanaContarRegistro;
-import poclibreria.gui.VentanaEliminar;
-import poclibreria.gui.VentanaListado;
+import pocLibro.Gui.VentanaBuscar;
+import pocLibro.Gui.VentanaAgregar;
+import pocLibro.Gui.VentanaContarRegistro;
+import pocLibro.Gui.VentanaEliminar;
+import pocLibro.Gui.VentanaListado;
 
 /**
  *

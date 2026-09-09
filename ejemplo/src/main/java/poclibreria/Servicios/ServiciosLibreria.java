@@ -10,7 +10,7 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import poclibreria.Modelo.Libro;
 import pucLiberiaUtils.StringUtils;
-import poclibreria.gui.VentanaEliminar;
+import pocLibro.Gui.VentanaEliminar;
 
 /**
  *
