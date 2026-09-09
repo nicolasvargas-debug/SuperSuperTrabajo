@@ -4,11 +4,14 @@
  */
 package poclibreria.gui;
 
+<<<<<<< HEAD
 import javax.swing.JOptionPane;
 import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.Modelo.Libro;
 
 
+=======
+>>>>>>> 54bbe114d8fc81fc3d631e5643cfb360d0f13972
 /**
  *
  * @author nikol
@@ -20,8 +23,6 @@ public class VentanaAgregar extends javax.swing.JFrame {
      */
     public VentanaAgregar() {
         initComponents();
-        setLocationRelativeTo(this);
-        
     }
 
     /**
@@ -33,175 +34,39 @@ public class VentanaAgregar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        ButAgregar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        TextPrecio = new javax.swing.JTextField();
-        TextEstado = new javax.swing.JTextField();
-        TextCodigo = new javax.swing.JTextField();
-        TextNombre = new javax.swing.JTextField();
-        CheckNo = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        CheckSi = new javax.swing.JCheckBox();
-        ButSalir = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel2.setText("Nombre:");
-
-        jLabel3.setText("Precio:");
-
-        jLabel4.setText("Disponible:");
-
-        ButAgregar.setText("Agregar");
-        ButAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButAgregarActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Estado:");
-
-        TextEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextEstadoActionPerformed(evt);
-            }
-        });
-
-        TextCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextCodigoActionPerformed(evt);
-            }
-        });
-
-        TextNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextNombreActionPerformed(evt);
-            }
-        });
-
-        CheckNo.setText("NO");
-
-        jLabel1.setText("Codigo:");
-
-        CheckSi.setText("SI");
-
-        ButSalir.setText("Salir");
-        ButSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButSalirActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(ButSalir)
-                        .addGap(61, 61, 61)
-                        .addComponent(ButAgregar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextPrecio)
-                                        .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(CheckSi)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(CheckNo)
-                                    .addGap(34, 34, 34))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(44, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(TextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CheckNo)
-                    .addComponent(CheckSi)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButAgregar)
-                    .addComponent(ButSalir))
-                .addGap(24, 24, 24))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextEstadoActionPerformed
-
-    private void TextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextCodigoActionPerformed
-
-    private void TextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextNombreActionPerformed
-
-    private void ButAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButAgregarActionPerformed
-        String nombre, strCodigo, strPrecio, estado;
-        int codigo;
-        double precio;
-        Libro libro;
-        boolean disponible;
-        
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
-            nombre = TextNombre.getText().trim();
-            strCodigo = TextCodigo.getText().trim();
-            strPrecio = TextPrecio.getText().trim();
-            estado = TextEstado.getText().trim();
-
-            if (CheckSi.isSelected() && !CheckNo.isSelected()) {
-                disponible = true;
-            } else if (!CheckSi.isSelected() && CheckNo.isSelected()) {
-                disponible = false;
-            } else {
-                JOptionPane.showMessageDialog(this, "Solo se puede selecionar una Disponibilidad");
-                return;
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+<<<<<<< HEAD
             codigo = Integer.parseInt(strCodigo);
             precio = Double.parseDouble(strPrecio);
 
@@ -222,34 +87,27 @@ public class VentanaAgregar extends javax.swing.JFrame {
             default:
                 JOptionPane.showMessageDialog(this, "Ocurrio un error al agregar el libro");
                 break;
+=======
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+>>>>>>> 54bbe114d8fc81fc3d631e5643cfb360d0f13972
         }
-        
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error" + e);
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaAgregar().setVisible(true);
+            }
+        });
     }
 
-
-
-    }//GEN-LAST:event_ButAgregarActionPerformed
-
-    private void ButSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButSalirActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_ButSalirActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButAgregar;
-    private javax.swing.JButton ButSalir;
-    private javax.swing.JCheckBox CheckNo;
-    private javax.swing.JCheckBox CheckSi;
-    private javax.swing.JTextField TextCodigo;
-    private javax.swing.JTextField TextEstado;
-    private javax.swing.JTextField TextNombre;
-    private javax.swing.JTextField TextPrecio;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
