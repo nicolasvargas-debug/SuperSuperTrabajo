@@ -47,6 +47,7 @@ poclibreria\Modelo\Libro.class
 poclibreria\gui\VentanaGUIParcial$1.class
 poclibreria\Servicios\ServiciosLibreria$ResultadoAgregar.class
 poclibreria\gui\VentanaGUIParcial.class
+poclibreria\Servicios\ServicioLibro$ResultadoAgregar.class
 poclibreria\gui\GuiPrincipal$8.class
 poclibreria\gui\VentanaActualizar$3.class
 poclibreria\gui\VentanaContarRegistro$2.class
@@ -54,4 +55,5 @@ poclibreria\gui\VentanaAgregar$6.class
 poclibreria\gui\VentanaEliminar$4.class
 poclibreria\gui\VentanaBuscar.class
 poclibreria\gui\VentanaBuscar$3.class
+poclibreria\Servicios\ServicioLibro.class
 pucLiberiaUtils\StringUtils.class
