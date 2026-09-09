@@ -11,27 +11,30 @@ package poclibreria.Modelo;
  */
 public class Libro {
     
-    private int codigo;
+    private int codigoLibro;
     private String nombre;
     private double precio;
     private boolean disponible;
     private String estado;
-    public static final int TAM_REGISTRO = 47;
-    public Libro( int codigo, String nombre, double precio, boolean disponible, String estado){
-        this.codigo = codigo;
+    private int codigoLibreria;
+    public static final int TAM_REGISTRO = 51;
+    public Libro( int codigoLibro, String nombre, double precio, boolean disponible, String estado,int codigoLibreria){
+        this.codigoLibro = codigoLibro;
         this.nombre = nombre;
         this.precio = precio;
         this.disponible = disponible;
         this.estado = estado;
+        this.codigoLibreria = codigoLibreria;
+        
 
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getCodigoLibro() {
+        return codigoLibro;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigoLibro(int codigoLibro) {
+        this.codigoLibro = codigoLibro;
     }
 
     public String getNombre() {
@@ -64,5 +67,11 @@ public class Libro {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+    public int getCodigoLibreria(){
+        return codigoLibreria;
+    }
+    public void setCodigoLibreria(int codigoLibreria){
+        this.codigoLibreria = codigoLibreria;
     }
 }

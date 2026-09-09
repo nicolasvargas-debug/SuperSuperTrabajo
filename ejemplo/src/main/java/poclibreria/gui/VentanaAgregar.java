@@ -5,7 +5,7 @@
 package poclibreria.gui;
 
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.Modelo.Libro;
 
 
@@ -207,7 +207,7 @@ public class VentanaAgregar extends javax.swing.JFrame {
 
             libro = new Libro(codigo, nombre, precio, disponible, estado);
             
-            ServiciosLibreria.ResultadoAgregar resultado = ServiciosLibreria.adicionarLibro(libro);
+            ServiciosLibro.ResultadoAgregar resultado = ServiciosLibro.adicionarLibro(libro);
 
             switch (resultado) {
             case OK:

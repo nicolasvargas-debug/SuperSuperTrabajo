@@ -5,7 +5,7 @@
 package poclibreria.gui;
 
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.gui.VentanaBuscar;
 import poclibreria.gui.VentanaAgregar;
 import poclibreria.gui.VentanaContarRegistro;

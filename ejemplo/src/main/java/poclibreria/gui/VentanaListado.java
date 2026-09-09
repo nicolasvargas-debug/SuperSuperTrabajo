@@ -6,7 +6,7 @@ package poclibreria.gui;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.Modelo.Libro;
 
 /**
@@ -88,7 +88,7 @@ public class VentanaListado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButListarActionPerformed
-    List<Libro> libros = ServiciosLibreria.getLibros();
+    List<Libro> libros = ServiciosLibro.getLibros();
 
         DefaultTableModel model = (DefaultTableModel) tblLibros.getModel();
         model.setRowCount(0);

@@ -6,7 +6,7 @@ package poclibreria.gui;
 
 import javax.swing.JOptionPane;
 import poclibreria.Modelo.Libro;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 
 
 /**
@@ -193,7 +193,7 @@ public class VentanaBuscar extends javax.swing.JFrame {
         strCodigo = TextCodigo.getText().trim();
         codigo = Integer.parseInt(strCodigo);
 
-        libro = ServiciosLibreria.buscarLibro(codigo);
+        libro = ServiciosLibro.buscarLibro(codigo);
 
         if (libro != null) {
             TextCodigo.setText(String.valueOf(libro.getCodigo()));

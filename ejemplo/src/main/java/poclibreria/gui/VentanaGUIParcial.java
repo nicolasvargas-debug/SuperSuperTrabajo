@@ -4,7 +4,7 @@
  */
 package poclibreria.gui;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 
 /**
  *
@@ -71,7 +71,7 @@ public class VentanaGUIParcial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButAumentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButAumentarActionPerformed
-        ServiciosLibreria.aumentarValor();
+        ServiciosLibro.aumentarValor();
     }//GEN-LAST:event_ButAumentarActionPerformed
 
 
