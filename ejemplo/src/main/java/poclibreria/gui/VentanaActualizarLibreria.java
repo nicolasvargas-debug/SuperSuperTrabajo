@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package poclibreria.gui;
+
 import javax.swing.JOptionPane;
 import poclibreria.Servicios.ServiciosLibreria;
 import poclibreria.Modelo.Libreria;
@@ -161,21 +158,21 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String strCodigoLibreria;
-        int codigoLibreria;
-        Libreria libreria;
+        boolean encontrado = false; 
 
         try {
-            strCodigoLibreria = textCodigoLibreria.getText().trim();
-            codigoLibreria = Integer.parseInt(strCodigoLibreria);
+            String strCodigoLibreria = textCodigoLibreria.getText().trim();
+            int codigoLibreria = Integer.parseInt(strCodigoLibreria);
 
-            libreria = ServiciosLibreria.buscarLibreria(codigoLibreria);
+            Libreria libreria = ServiciosLibreria.buscarLibreria(codigoLibreria);
 
             if (libreria != null) {
                 textnombre.setText(libreria.getNombre());
                 textnombre.setEnabled(true);
+                
                 textPresupuesto.setText(String.valueOf(libreria.getPresupuesto()));
                 textPresupuesto.setEnabled(true);
+<<<<<<< HEAD
                 txtCategoria.setText(String.valueOf(libreria.getPresupuesto()));
                 if (libreria.isEstado()){
                      checkDisponible.setSelected(true);
@@ -184,6 +181,18 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
                 else{
                     checkDisponible.setSelected(false);
                      checkNoDisponible.setSelected(true);
+=======
+                
+                // Nota: Revisa si de verdad quieres poner el presupuesto en txtCategoria
+                txtCategoria.setText(String.valueOf(libreria.getPresupuesto())); 
+                
+                if (libreria.isEstado()) {
+                    checkDisponible.setSelected(true);
+                    checkNoDisponible.setSelected(false);
+                } else {
+                    checkDisponible.setSelected(false);
+                    checkNoDisponible.setSelected(true);
+>>>>>>> 9bc335cb1ac0a66b113ac313a461c47c9a14bb3b
                 }
                 
                 butActulizado.setEnabled(true);
@@ -191,13 +200,23 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
             } else {
                 textnombre.setText("");
                 textnombre.setEnabled(false);
+                
                 textPresupuesto.setText("");
                 textPresupuesto.setEnabled(false);
+                
                 txtCategoria.setText("");
+<<<<<<< HEAD
                 checkDisponible.isSelected();
                 checkNoDisponible.
+=======
+                
+                checkDisponible.setSelected(false);
+                checkNoDisponible.setSelected(false);
+                
+>>>>>>> 9bc335cb1ac0a66b113ac313a461c47c9a14bb3b
                 butActulizado.setEnabled(false);
                 encontrado = false;
+                
                 JOptionPane.showMessageDialog(this, "Inventario No encontrado.");
             }
         } catch (NumberFormatException e) {
