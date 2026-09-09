@@ -4,6 +4,9 @@
  */
 package poclibreria.gui;
 
+import poclibreria.Modelo.Libreria;
+
+
 /**
  *
  * @author USUARIO
@@ -61,6 +64,7 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
         butSalir.addActionListener(this::butSalirActionPerformed);
 
         butAgregar.setText("Agregar");
+        butAgregar.addActionListener(this::butAgregarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,30 +137,18 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_butSalirActionPerformed
 
+    private void butAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAgregarActionPerformed
+        String nombre, strCodigoLibreria, strPresupuesto, estado, direccion;
+        int codigoLibreria;
+        double presupuesto;
+        Libreria libreria;
+        
+    }//GEN-LAST:event_butAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VentanaAgregarLibreria().setVisible(true));
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAgregar;

@@ -5,10 +5,10 @@ public class Libreria {
     private int codigoLibreria;      // atri1: integer(10) - Llave primaria
     private String nombre;       // atri2: varchar(255)
     private double presupuesto;  // atri3: double(10)
-    private char categoria;      // atri4: char(1)
+    private String categoria;      // atri4: char(1)
     private boolean estado;       // estado: varchar(2) - Para el eliminado lógico
 
-    public Libreria(int idLibreria, String nombre, double presupuesto, char categoria, boolean estado) {
+    public Libreria(int idLibreria, String nombre, double presupuesto, String categoria, boolean estado) {
         this.codigoLibreria = idLibreria;
         this.nombre = nombre;
         this.presupuesto = presupuesto;
@@ -40,11 +40,11 @@ public class Libreria {
         this.presupuesto = presupuesto;
     }
 
-    public char getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(char categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
