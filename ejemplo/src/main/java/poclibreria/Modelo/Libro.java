@@ -8,8 +8,9 @@ public class Libro {
     private boolean disponible;
     private String estado;
 
-    public Libro(int codigo, String nombre, double precio, boolean disponible, String estado) {
+    public Libro(int codigo, int codigoLibreria, String nombre, double precio, boolean disponible, String estado) {
         this.codigo = codigo;
+        this.codigoLibreria = codigoLibreria;
         this.nombre = nombre;
         this.precio = precio;
         this.disponible = disponible;
@@ -24,11 +25,11 @@ public class Libro {
         this.codigo = codigo;
     }
 
-    public int getIdLibreria() {
+    public int getCodigoLibreria() {
         return codigoLibreria;
     }
 
-    public void setIdLibreria(int idLibreria) {
+    public void setCodigoLibreria(int idLibreria) {
         this.codigoLibreria = idLibreria;
     }
 

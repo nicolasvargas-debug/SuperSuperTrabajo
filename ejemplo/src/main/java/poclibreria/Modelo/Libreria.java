@@ -9,19 +9,19 @@ public class Libreria {
     private boolean estado;       // estado: varchar(2) - Para el eliminado lógico
 
     public Libreria(int idLibreria, String nombre, double presupuesto, String categoria, boolean estado) {
-        this.codigoLibreria = idLibreria;
+        this.codigoLibreria = codigoLibreria;
         this.nombre = nombre;
         this.presupuesto = presupuesto;
         this.categoria = categoria;
         this.estado = estado;
     }
 
-    public int getIdLibreria() {
+    public int getCodigoLibreria() {
         return codigoLibreria;
     }
 
-    public void setIdLibreria(int idLibreria) {
-        this.codigoLibreria = idLibreria;
+    public void setCodigoLibreria(int codigoLibreria) {
+        this.codigoLibreria = codigoLibreria;
     }
 
     public String getNombre() {
@@ -48,14 +48,13 @@ public class Libreria {
         this.categoria = categoria;
     }
 
-    public int getCodigoLibreria() {
-        return codigoLibreria;
-    }
-
-    public boolean isDisponible() {
+    public boolean isEstado() {
         return estado;
     }
-    
-    
-   
+    public void isEstado(boolean estado){
+         this.estado = estado;
+    }
+
+
+
 }
