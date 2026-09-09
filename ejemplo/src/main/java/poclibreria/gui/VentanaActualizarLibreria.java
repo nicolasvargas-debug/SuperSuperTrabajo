@@ -172,16 +172,6 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
                 
                 textPresupuesto.setText(String.valueOf(libreria.getPresupuesto()));
                 textPresupuesto.setEnabled(true);
-<<<<<<< HEAD
-                txtCategoria.setText(String.valueOf(libreria.getPresupuesto()));
-                if (libreria.isEstado()){
-                     checkDisponible.setSelected(true);
-                     checkNoDisponible.setSelected(false);
-                }
-                else{
-                    checkDisponible.setSelected(false);
-                     checkNoDisponible.setSelected(true);
-=======
                 
                 // Nota: Revisa si de verdad quieres poner el presupuesto en txtCategoria
                 txtCategoria.setText(String.valueOf(libreria.getPresupuesto())); 
@@ -192,11 +182,11 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
                 } else {
                     checkDisponible.setSelected(false);
                     checkNoDisponible.setSelected(true);
->>>>>>> 9bc335cb1ac0a66b113ac313a461c47c9a14bb3b
                 }
                 
                 butActulizado.setEnabled(true);
                 encontrado = true;
+                
             } else {
                 textnombre.setText("");
                 textnombre.setEnabled(false);
@@ -205,15 +195,10 @@ public class VentanaActualizarLibreria extends javax.swing.JFrame {
                 textPresupuesto.setEnabled(false);
                 
                 txtCategoria.setText("");
-<<<<<<< HEAD
-                checkDisponible.isSelected();
-                checkNoDisponible.
-=======
                 
                 checkDisponible.setSelected(false);
                 checkNoDisponible.setSelected(false);
                 
->>>>>>> 9bc335cb1ac0a66b113ac313a461c47c9a14bb3b
                 butActulizado.setEnabled(false);
                 encontrado = false;
                 

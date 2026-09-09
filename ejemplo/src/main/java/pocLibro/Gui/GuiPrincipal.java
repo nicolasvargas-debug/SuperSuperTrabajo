@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import pocLibro.Gui.VentanaBuscar;
 import pocLibro.Gui.VentanaAgregar;
 import pocLibro.Gui.VentanaContarRegistro;
-import pocLibro.Gui.VentanaEliminar;
+import pocLibro.Gui.VentanaEliminarLibro;
 import pocLibro.Gui.VentanaListado;
 import pocLibro.Gui.VentanaSumatoria;
 import pocLibro.Gui.VentanaActualizar;
@@ -16,6 +16,8 @@ import poclibreria.gui.VentanaAgregarLibreria;
 import poclibreria.gui.VentanaBuscarLibreria;
 import poclibreria.gui.VentanaListadoLibreria;
 import poclibreria.gui.VentanaContarRegistroLibreria;
+import poclibreria.gui.VentanaActualizarLibreria;
+import poclibreria.gui.VentanaEliminar;
 
 
 
@@ -211,7 +213,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        VentanaEliminar ventanaEliminar = new VentanaEliminar();
+        VentanaEliminarLibro ventanaEliminar = new VentanaEliminarLibro();
         ventanaEliminar.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
@@ -231,21 +233,22 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void SubMenuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuAgregarActionPerformed
-    VentanaAgregar vAgregar = new VentanaAgregar();
+    VentanaAgregarLibreria vAgregar = new VentanaAgregarLibreria();
     vAgregar.setVisible(true);
     }//GEN-LAST:event_SubMenuAgregarActionPerformed
 
     private void SubMenuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuBuscarActionPerformed
-      VentanaBuscar vBuscar = new VentanaBuscar();
-      vBuscar.setVisible(true);
+      VentanaActualizarLibreria vActualizar = new VentanaActualizarLibreria();
+      vActualizar.setVisible(true);
     }//GEN-LAST:event_SubMenuBuscarActionPerformed
 
     private void SubMenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuEliminarActionPerformed
-        // TODO add your handling code here:
+    VentanaEliminar ventanaEliminar = new VentanaEliminar();
+        ventanaEliminar.setVisible(true);
     }//GEN-LAST:event_SubMenuEliminarActionPerformed
 
     private void SubMenuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuListarActionPerformed
-    VentanaListado vListado = new VentanaListado();
+    VentanaListadoLibreria vListado = new VentanaListadoLibreria();
     vListado.setVisible(true);
     }//GEN-LAST:event_SubMenuListarActionPerformed
 
