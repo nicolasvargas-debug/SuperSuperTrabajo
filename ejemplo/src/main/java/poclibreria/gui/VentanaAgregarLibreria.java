@@ -4,24 +4,18 @@
  */
 package poclibreria.gui;
 
-<<<<<<< HEAD
-import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibro;
-import poclibreria.Modelo.Libro;
-
-
-=======
->>>>>>> 54bbe114d8fc81fc3d631e5643cfb360d0f13972
 /**
  *
- * @author nikol
+ * @author USUARIO
  */
-public class VentanaAgregar extends javax.swing.JFrame {
+public class VentanaAgregarLibreria extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaAgregarLibreria.class.getName());
 
     /**
-     * Creates new form VentanaAgregar
+     * Creates new form VentanaAgregarLibreria
      */
-    public VentanaAgregar() {
+    public VentanaAgregarLibreria() {
         initComponents();
     }
 
@@ -66,46 +60,13 @@ public class VentanaAgregar extends javax.swing.JFrame {
                     break;
                 }
             }
-<<<<<<< HEAD
-            codigo = Integer.parseInt(strCodigo);
-            precio = Double.parseDouble(strPrecio);
-
-            libro = new Libro(codigo, nombre, precio, disponible, estado);
-            
-            ServiciosLibro.ResultadoAgregar resultado = ServiciosLibro.adicionarLibro(libro);
-
-            switch (resultado) {
-            case OK:
-                JOptionPane.showMessageDialog(this, "El libro se agrego correctamente");
-                break;
-            case CODIGO_REPETIDO:
-                JOptionPane.showMessageDialog(this, "Ya existe un libro con ese codigo");
-                break;
-            case NOMBRE_REPETIDO:
-                JOptionPane.showMessageDialog(this, "Ya existe un libro con ese nombre (homonimo)");
-                break;
-            default:
-                JOptionPane.showMessageDialog(this, "Ocurrio un error al agregar el libro");
-                break;
-=======
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
->>>>>>> 54bbe114d8fc81fc3d631e5643cfb360d0f13972
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaAgregar().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new VentanaAgregarLibreria().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

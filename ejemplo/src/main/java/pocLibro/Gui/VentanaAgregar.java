@@ -2,26 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package poclibreria.gui;
+package pocLibro.Gui;
 
 import javax.swing.JOptionPane;
-import poclibreria.Modelo.Libro;
 import pocLibreria.Servicios.ServiciosLibreria;
+import poclibreria.Modelo.Libro;
 
 
 /**
  *
  * @author nikol
  */
-public class VentanaBuscar extends javax.swing.JFrame {
+public class VentanaAgregar extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaBuscar
+     * Creates new form VentanaAgregar
      */
-    public VentanaBuscar() {
+    public VentanaAgregar() {
         initComponents();
         setLocationRelativeTo(this);
-    
+        
     }
 
     /**
@@ -33,48 +33,42 @@ public class VentanaBuscar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ButBuscar = new javax.swing.JButton();
-        CheckNo = new javax.swing.JCheckBox();
-        TextNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        CheckSi = new javax.swing.JCheckBox();
+        ButAgregar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         TextPrecio = new javax.swing.JTextField();
-        TextCodigo = new javax.swing.JTextField();
         TextEstado = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        TextCodigo = new javax.swing.JTextField();
+        TextNombre = new javax.swing.JTextField();
+        CheckNo = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        CheckSi = new javax.swing.JCheckBox();
         ButSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        ButBuscar.setText("Buscar");
-        ButBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButBuscarActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Nombre:");
 
-        CheckNo.setText("NO");
-        CheckNo.setEnabled(false);
-
-        TextNombre.setEditable(false);
-        TextNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextNombreActionPerformed(evt);
-            }
-        });
+        jLabel3.setText("Precio:");
 
         jLabel4.setText("Disponible:");
 
-        CheckSi.setText("SI");
-        CheckSi.setEnabled(false);
+        ButAgregar.setText("Agregar");
+        ButAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButAgregarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Estado:");
 
-        TextPrecio.setEditable(false);
+        TextEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextEstadoActionPerformed(evt);
+            }
+        });
 
         TextCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,20 +76,17 @@ public class VentanaBuscar extends javax.swing.JFrame {
             }
         });
 
-        TextEstado.setEditable(false);
-        TextEstado.addActionListener(new java.awt.event.ActionListener() {
+        TextNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextEstadoActionPerformed(evt);
+                TextNombreActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Nombre:");
+        CheckNo.setText("NO");
 
         jLabel1.setText("Codigo:");
 
-        jLabel3.setText("Precio:");
-
-        jLabel6.setText("Buqueda por codigo:");
+        CheckSi.setText("SI");
 
         ButSalir.setText("Salir");
         ButSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +102,11 @@ public class VentanaBuscar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(ButSalir)
+                        .addGap(61, 61, 61)
+                        .addComponent(ButAgregar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,30 +126,19 @@ public class VentanaBuscar extends javax.swing.JFrame {
                                     .addComponent(CheckNo)
                                     .addGap(34, 34, 34))))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel6)))
+                                .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ButSalir)
-                .addGap(49, 49, 49)
-                .addComponent(ButBuscar)
-                .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel6)
-                .addGap(31, 31, 31)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -167,69 +152,93 @@ public class VentanaBuscar extends javax.swing.JFrame {
                     .addComponent(TextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
                     .addComponent(CheckNo)
-                    .addComponent(CheckSi))
+                    .addComponent(CheckSi)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButBuscar)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButAgregar)
                     .addComponent(ButSalir))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButBuscarActionPerformed
-        String nombre, estado, strCodigo, strPrecio;
-        int codigo;
-        boolean disponible;
-        Libro libro;
-
-        strCodigo = TextCodigo.getText().trim();
-        codigo = Integer.parseInt(strCodigo);
-
-        libro = ServiciosLibreria.buscarLibro(codigo);
-
-        if (libro != null) {
-            TextCodigo.setText(String.valueOf(libro.getCodigo()));
-            TextNombre.setText(libro.getNombre());
-            TextPrecio.setText(String.valueOf(libro.getPrecio()));
-            TextEstado.setText(libro.getEstado());
-            if (libro.isDisponible() == true) {
-                CheckSi.setSelected(true);
-            } else {
-                CheckNo.setSelected(false);
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Libro no encontrado!");
-        }
-    }//GEN-LAST:event_ButBuscarActionPerformed
-
-    private void TextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNombreActionPerformed
+    private void TextEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEstadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextNombreActionPerformed
+    }//GEN-LAST:event_TextEstadoActionPerformed
 
     private void TextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextCodigoActionPerformed
 
-    private void TextEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEstadoActionPerformed
+    private void TextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextEstadoActionPerformed
+    }//GEN-LAST:event_TextNombreActionPerformed
+
+    private void ButAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButAgregarActionPerformed
+        String nombre, strCodigo, strPrecio, estado;
+        int codigo;
+        double precio;
+        Libro libro;
+        boolean disponible;
+        
+        try {
+            nombre = TextNombre.getText().trim();
+            strCodigo = TextCodigo.getText().trim();
+            strPrecio = TextPrecio.getText().trim();
+            estado = TextEstado.getText().trim();
+
+            if (CheckSi.isSelected() && !CheckNo.isSelected()) {
+                disponible = true;
+            } else if (!CheckSi.isSelected() && CheckNo.isSelected()) {
+                disponible = false;
+            } else {
+                JOptionPane.showMessageDialog(this, "Solo se puede selecionar una Disponibilidad");
+                return;
+            }
+            codigo = Integer.parseInt(strCodigo);
+            precio = Double.parseDouble(strPrecio);
+
+            libro = new Libro(codigo, nombre, precio, disponible, estado);
+            
+            ServiciosLibreria.ResultadoAgregar resultado = ServiciosLibreria.adicionarLibro(libro);
+
+            switch (resultado) {
+            case OK:
+                JOptionPane.showMessageDialog(this, "El libro se agrego correctamente");
+                break;
+            case CODIGO_REPETIDO:
+                JOptionPane.showMessageDialog(this, "Ya existe un libro con ese codigo");
+                break;
+            case NOMBRE_REPETIDO:
+                JOptionPane.showMessageDialog(this, "Ya existe un libro con ese nombre (homonimo)");
+                break;
+            default:
+                JOptionPane.showMessageDialog(this, "Ocurrio un error al agregar el libro");
+                break;
+        }
+        
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error" + e);
+    }
+
+
+
+    }//GEN-LAST:event_ButAgregarActionPerformed
 
     private void ButSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButSalirActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_ButSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButBuscar;
+    private javax.swing.JButton ButAgregar;
     private javax.swing.JButton ButSalir;
     private javax.swing.JCheckBox CheckNo;
     private javax.swing.JCheckBox CheckSi;
@@ -242,6 +251,5 @@ public class VentanaBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

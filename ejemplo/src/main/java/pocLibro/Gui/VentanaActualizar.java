@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package poclibreria.gui;
+package pocLibro.Gui;
 
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.Modelo.Libro;
 import pucLiberiaUtils.StringUtils;
 
@@ -258,7 +258,7 @@ public class VentanaActualizar extends javax.swing.JFrame {
         strCodigo = TextCodigoViejo.getText().trim();
         codigo = Integer.parseInt(strCodigo);
 
-        libro = ServiciosLibreria.buscarLibro(codigo);
+        libro = ServiciosLibro.buscarLibro(codigo);
 
         if (libro != null) {
             TextCodigoViejo.setText(String.valueOf(libro.getCodigo()));

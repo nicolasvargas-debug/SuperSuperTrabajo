@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package poclibreria.gui;
+package pocLibro.Gui;
 
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibreria;
+import pocLibreria.Servicios.ServiciosLibro;
 
 /**
  *
@@ -112,8 +112,8 @@ public class VentanaContarRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_TextCuentaActionPerformed
 
     private void ButContarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButContarActionPerformed
-        if (ServiciosLibreria.contarRegistros() > 0){
-            String cuenta = String.valueOf(ServiciosLibreria.contarRegistros());
+        if (ServiciosLibro.contarRegistros() > 0){
+            String cuenta = String.valueOf(ServiciosLibro.contarRegistros());
             TextCuenta.setText(cuenta);
         }
         else {
