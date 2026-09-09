@@ -12,7 +12,6 @@ import pocLibro.Gui.VentanaEliminar;
 import pocLibro.Gui.VentanaListado;
 import pocLibro.Gui.VentanaSumatoria;
 import pocLibro.Gui.VentanaActualizar;
-import pocLibro.Gui.VentanaGUIParcial;
 /**
  *
  * @author nikol
@@ -204,9 +203,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void subMenuGUIParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuGUIParcialActionPerformed
-        VentanaGUIParcial vGuiparcial = new VentanaGUIParcial();
-        vGuiparcial.setVisible(true);
-        
+
     }//GEN-LAST:event_subMenuGUIParcialActionPerformed
 
 

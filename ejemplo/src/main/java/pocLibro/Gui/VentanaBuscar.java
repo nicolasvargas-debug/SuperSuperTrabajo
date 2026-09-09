@@ -6,7 +6,7 @@ package pocLibro.Gui;
 
 import javax.swing.JOptionPane;
 import poclibreria.Modelo.Libro;
-import pocLibreria.Servicios.ServiciosLibro;
+import poclibreria.Servicios.ServicioLibro;
 
 
 /**
@@ -47,6 +47,8 @@ public class VentanaBuscar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         ButSalir = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        TextCodigo1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,7 +97,7 @@ public class VentanaBuscar extends javax.swing.JFrame {
 
         jLabel3.setText("Precio:");
 
-        jLabel6.setText("Buqueda por codigo:");
+        jLabel6.setText("Buqueda por codigo y codigo libreria:");
 
         ButSalir.setText("Salir");
         ButSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -104,60 +106,78 @@ public class VentanaBuscar extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Codigo Libreria:");
+
+        TextCodigo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextCodigo1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextPrecio)
-                                        .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(CheckSi)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(CheckNo)
-                                    .addGap(34, 34, 34))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel6)))
-                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButSalir)
                 .addGap(49, 49, 49)
                 .addComponent(ButBuscar)
                 .addGap(115, 115, 115))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(TextPrecio)
+                                            .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(55, 55, 55)
+                                        .addComponent(CheckSi)
+                                        .addGap(63, 63, 63)
+                                        .addComponent(CheckNo))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel6)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel6)
-                .addGap(31, 31, 31)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabel7)
                     .addComponent(TextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(TextCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,31 +205,38 @@ public class VentanaBuscar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButBuscarActionPerformed
-        String nombre, estado, strCodigo, strPrecio;
-        int codigo;
-        boolean disponible;
-        Libro libro;
+        try {
+            String strCodigoLib = TextCodigo.getText().trim();
+            String strCodigo = TextCodigo1.getText().trim();
 
-        strCodigo = TextCodigo.getText().trim();
-        codigo = Integer.parseInt(strCodigo);
-
-        libro = serviciosLibro.buscarLibro(codigo);
-
-        if (libro != null) {
-            TextCodigo.setText(String.valueOf(libro.getCodigo()));
-            TextNombre.setText(libro.getNombre());
-            TextPrecio.setText(String.valueOf(libro.getPrecio()));
-            TextEstado.setText(libro.getEstado());
-            if (libro.isDisponible() == true) {
-                CheckSi.setSelected(true);
-                CheckNo.setSelected(false);
-            } else {
-                CheckSi.setSelected(false);
-                CheckNo.setSelected(true);
+            if (strCodigoLib.isEmpty() || strCodigo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar tanto el Código del Libro como el Código de Librería.");
+                return;
             }
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Libro no encontrado!");
+            int codigoLibreria = Integer.parseInt(strCodigoLib);
+            int codigo = Integer.parseInt(strCodigo);
+
+            Libro libro = ServicioLibro.buscarLibro(codigo);
+
+            if (libro != null) {
+                TextNombre.setText(libro.getNombre());
+                TextPrecio.setText(String.valueOf(libro.getPrecio()));
+                TextEstado.setText(libro.getEstado());
+                if (libro.isDisponible()) {
+                    CheckSi.setSelected(true);
+                    CheckNo.setSelected(false);
+                } else {
+                    CheckSi.setSelected(false);
+                    CheckNo.setSelected(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "¡Libro no encontrado!");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese valores numéricos válidos en los campos de código.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al realizar la búsqueda: " + e.getMessage());
         }
     }//GEN-LAST:event_ButBuscarActionPerformed
 
@@ -229,6 +256,10 @@ public class VentanaBuscar extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_ButSalirActionPerformed
 
+    private void TextCodigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCodigo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextCodigo1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButBuscar;
@@ -236,6 +267,7 @@ public class VentanaBuscar extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckNo;
     private javax.swing.JCheckBox CheckSi;
     private javax.swing.JTextField TextCodigo;
+    private javax.swing.JTextField TextCodigo1;
     private javax.swing.JTextField TextEstado;
     private javax.swing.JTextField TextNombre;
     private javax.swing.JTextField TextPrecio;
@@ -245,5 +277,6 @@ public class VentanaBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

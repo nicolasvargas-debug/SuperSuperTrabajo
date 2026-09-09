@@ -6,7 +6,7 @@ package pocLibro.Gui;
 
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibro;
+import poclibreria.Servicios.ServicioLibro;
 
 /**
  *
@@ -112,8 +112,8 @@ public class VentanaContarRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_TextCuentaActionPerformed
 
     private void ButContarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButContarActionPerformed
-        if (ServiciosLibro.contarRegistros() > 0){
-            String cuenta = String.valueOf(ServiciosLibro.contarRegistros());
+        if (ServicioLibro.contarRegistros() > 0){
+            String cuenta = String.valueOf(ServicioLibro.contarRegistros());
             TextCuenta.setText(cuenta);
         }
         else {

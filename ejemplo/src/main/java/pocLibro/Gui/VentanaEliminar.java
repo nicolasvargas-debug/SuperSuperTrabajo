@@ -6,7 +6,7 @@ package pocLibro.Gui;
 
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibreria;
+import poclibreria.Servicios.ServicioLibro;
 import poclibreria.Modelo.Libro;
 
 /**
@@ -215,7 +215,7 @@ public class VentanaEliminar extends javax.swing.JFrame {
         strCodigo = TextCodigo.getText().trim();
         codigo = Integer.parseInt(strCodigo);
         
-        libro = ServiciosLibreria.buscarLibro(codigo);
+        libro = ServicioLibro.buscarLibro(codigo);
         
         if (libro != null){
              try {

@@ -6,8 +6,8 @@ package pocLibro.Gui;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.Modelo.Libro;
+import poclibreria.Servicios.ServicioLibro;
 
 /**
  *
@@ -40,14 +40,14 @@ public class VentanaListado extends javax.swing.JFrame {
 
         tblLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Precio", "Disponible", "Estado"
+                "Codigo Libreria", "Codigo", "Nombre", "Precio", "Disponible", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Boolean.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Boolean.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,12 +88,15 @@ public class VentanaListado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButListarActionPerformed
-    List<Libro> libros = ServiciosLibro.getLibros();
+    List<Libro> libros = ServicioLibro.getLibros();
 
         DefaultTableModel model = (DefaultTableModel) tblLibros.getModel();
         model.setRowCount(0);
-        for(Libro e : libros){
-            model.addRow(new Object[]{e.getCodigo(),e.getNombre(), e.getPrecio(), e.isDisponible(),e.getEstado() });
+
+        for (Libro l : libros) {
+            model.addRow(new Object[]{
+            l.getCodigo(), l.getCodigoLibreria(), l.getNombre(), l.getPrecio(), l.isDisponible(), l.getEstado(),});
+        
     }//GEN-LAST:event_ButListarActionPerformed
 
   

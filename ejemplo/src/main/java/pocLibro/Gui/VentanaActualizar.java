@@ -6,8 +6,8 @@ package pocLibro.Gui;
 
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServicioLibro;
 import poclibreria.Modelo.Libro;
+import poclibreria.Servicios.ServicioLibro;
 import pucLiberiaUtils.StringUtils;
 
 /**
@@ -166,35 +166,30 @@ public class VentanaActualizar extends javax.swing.JFrame {
                         .addComponent(ButActualizar)
                         .addGap(97, 97, 97))
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addGap(11, 11, 11)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(CheckSiViejo)
+                                .addGap(96, 96, 96)
+                                .addComponent(CheckNoViejo)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(CheckSiViejo)
-                                        .addGap(96, 96, 96)
-                                        .addComponent(CheckNoViejo)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(TextEstadoViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TextPrecioViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(TextEstadoViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(TextPrecioViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(TextCodigoViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)))))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(TextCodigoViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(57, 57, 57)
@@ -209,7 +204,9 @@ public class VentanaActualizar extends javax.swing.JFrame {
                                     .addComponent(TextCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(29, 29, 29))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
                         .addGap(68, 68, 68)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextNombreViejo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,18 +229,19 @@ public class VentanaActualizar extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(TextCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TextCodigoViejo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TextNombreViejo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextCodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -275,7 +273,7 @@ public class VentanaActualizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextEstadoViejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEstadoViejoActionPerformed
-        // TODO add your handling code here:
+        TextEstadoViejoActionPerformed(evt);
     }//GEN-LAST:event_TextEstadoViejoActionPerformed
 
     private void TextCodigoViejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCodigoViejoActionPerformed
@@ -293,46 +291,65 @@ public class VentanaActualizar extends javax.swing.JFrame {
         Libro libro;
 
         strCodigo = TextCodigoViejo.getText().trim();
-        codigo = Integer.parseInt(strCodigo);
+        try {
+            codigo = Integer.parseInt(strCodigo);
+            libro = ServicioLibro.buscarLibro(codigo);
 
-        libro = ServicioLibro.buscarLibro(codigo);
+            if (libro != null) {
+                TextCodigoViejo.setText(String.valueOf(libro.getCodigo()));
+                TextNombreViejo.setText(libro.getNombre());
+                TextPrecioViejo.setText(String.valueOf(libro.getPrecio()));
+                TextEstadoViejo.setText(libro.getEstado());
+                
+                // Mapear el codigo de libreria si tu clase Libro tiene el metodo getCodigoLibreria()
+                // TextCodigoViejo1.setText(String.valueOf(libro.getCodigoLibreria())); 
+                // TextCodigo2.setText(String.valueOf(libro.getCodigoLibreria())); 
 
-        if (libro != null) {
-            TextCodigoViejo.setText(String.valueOf(libro.getCodigo()));
-            TextNombreViejo.setText(libro.getNombre());
-            TextPrecioViejo.setText(String.valueOf(libro.getPrecio()));
-            TextEstadoViejo.setText(libro.getEstado());
-            if (libro.isDisponible() == true) {
-                CheckSiViejo.setSelected(true);
+                if (libro.isDisponible()) {
+                    CheckSiViejo.setSelected(true);
+                    CheckNoViejo.setSelected(false);
+                } else {
+                    CheckSiViejo.setSelected(false);
+                    CheckNoViejo.setSelected(true);
+                }
+                
+                TextCodigo1.setText(String.valueOf(libro.getCodigo()));
+                TextNombre1.setText(libro.getNombre());
+                TextPrecio1.setText(String.valueOf(libro.getPrecio()));
+                TextEstado1.setText(libro.getEstado());
+                
+                if (libro.isDisponible()) {
+                    CheckSi1.setSelected(true);
+                    CheckNo1.setSelected(false);
+                } else {
+                    CheckSi1.setSelected(false);
+                    CheckNo1.setSelected(true);
+                }
+
             } else {
-                CheckNoViejo.setSelected(false);
+                JOptionPane.showMessageDialog(this, "Libro no encontrado!");
             }
-            TextCodigo1.setText(String.valueOf(libro.getCodigo()));
-            TextNombre1.setText(libro.getNombre());
-            TextPrecio1.setText(String.valueOf(libro.getPrecio()));
-            TextEstado1.setText(libro.getEstado());
-            if (libro.isDisponible() == true) {
-                CheckSi1.setSelected(true);
-            } else {
-                CheckNo1.setSelected(false);
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Libro no encontrado!");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un código válido para buscar.");
         }
     }//GEN-LAST:event_ButBuscarActionPerformed
 
     private void ButActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButActualizarActionPerformed
-        String pNombre, pEstado, StrCodigo;
-        int pCodigo;
+        String pNombre, pEstado;
+        int pCodigo, pCodigoLibreria;
         double pPrecio;
         boolean pDisponible;
-        Libro libro;
+        
         try {
             pCodigo = Integer.parseInt(TextCodigo1.getText());
+            
+            // TextCodigo2 corresponde al campo del nuevo código de librería en la interfaz
+            pCodigoLibreria = Integer.parseInt(TextCodigo2.getText()); 
+            
             pNombre = TextNombre1.getText();
             pEstado = TextEstado1.getText();
             pPrecio = Double.parseDouble(TextPrecio1.getText());
+            
             if (CheckSi1.isSelected() && !CheckNo1.isSelected()) {
                 pDisponible = true;
             } else if (!CheckSi1.isSelected() && CheckNo1.isSelected()) {
@@ -341,40 +358,49 @@ public class VentanaActualizar extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Solo se puede seleccionar un estado de disponibilidad");
                 return;
             } else {
-                JOptionPane.showMessageDialog(this, "Se tiene que selecionar un estado de disponibilidad");
+                JOptionPane.showMessageDialog(this, "Se tiene que seleccionar un estado de disponibilidad");
                 return;
             }
             
-            
             RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
+            
             while (file.getFilePointer() < file.length()) {
+                long posicionInicio = file.getFilePointer(); // Guardar la posición inicial del registro
+                
                 int codigo = file.readInt();
+                int codigoLib = file.readInt(); // LEER el código de librería para que el puntero avance correctamente
+                
                 if (codigo == pCodigo) {
-                    file.seek(file.getFilePointer() - 4);
+                    file.seek(posicionInicio); // Volver al inicio exacto para sobrescribir todo el bloque
+                    
                     file.writeInt(pCodigo);
+                    file.writeInt(pCodigoLibreria); // ESCRIBIR el código de librería actualizado
                     file.writeUTF(StringUtils.formatearCadena(pNombre, 25));
                     file.writeDouble(pPrecio);
                     file.writeBoolean(pDisponible);
                     file.writeUTF(StringUtils.formatearCadena(pEstado, 5));
-                    JOptionPane.showMessageDialog(this, "Se Actulizo el libro correctamente");
-                    break;
+                    
+                    file.close(); // Cerrar archivo y liberar memoria
+                    JOptionPane.showMessageDialog(this, "Se actualizó el libro correctamente");
+                    return; // Salir del método para evitar mostrar el mensaje de error de abajo
                     
                 } else {
-                    file.readUTF();
-                    file.readDouble();
-                    file.readBoolean();
-                    file.readUTF();
-
+                    // Si no es el libro, consumir el resto de los bytes para alinear el puntero al siguiente registro
+                    file.readUTF();     // Lee nombre
+                    file.readDouble();  // Lee precio
+                    file.readBoolean(); // Lee disponibilidad
+                    file.readUTF();     // Lee estado
                 }
-
-                
             }
-            JOptionPane.showMessageDialog(this, "No se encontro el libro en lista");
+            
+            file.close(); // Cerrar también en caso de no encontrar el registro
+            JOptionPane.showMessageDialog(this, "No se encontró el libro en lista");
 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Verifique que los campos numéricos (códigos y precio) tengan un formato válido.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error" + e);
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
-
 
     }//GEN-LAST:event_ButActualizarActionPerformed
 
