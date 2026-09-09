@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package poclibreria.Servicios;
+package pocLibreria.Servicios;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -11,165 +7,170 @@ import poclibreria.Modelo.Libro;
 import pucLiberiaUtils.StringUtils;
 
 public class ServicioLibro {
-    public static final String RUTA_ARCHIVO = "data//libro.txt";
-
+    
     public enum ResultadoAgregar {
-        OK,
-        CODIGO_REPETIDO,
-        NOMBRE_REPETIDO,
-        LLAVE_FORANEA_NO_EXISTE, // Nuevo estado para validar Archivo A
-        ERROR
+        OK, CODIGO_REPETIDO, NOMBRE_REPETIDO, ERROR
     }
 
     public static ResultadoAgregar adicionarLibro(Libro libro) {
-        
-        if (ServiciosLibreria.buscarLibreria(libro.getIdLibreria()) == null) {
-            return ResultadoAgregar.LLAVE_FORANEA_NO_EXISTE;
-        }
+        try {
+            RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
 
-        try (RandomAccessFile file = new RandomAccessFile(RUTA_ARCHIVO, "rw")) {
             file.seek(0);
-
             while (file.getFilePointer() < file.length()) {
                 int codigo = file.readInt();
-                int idLibreria = file.readInt(); // Lectura de la llave foránea
                 String nombre = file.readUTF().trim();
                 file.readDouble();
                 file.readBoolean();
                 file.readUTF();
 
                 if (codigo == libro.getCodigo()) {
+                    file.close();
                     return ResultadoAgregar.CODIGO_REPETIDO;
                 }
                 if (nombre.equalsIgnoreCase(libro.getNombre().trim())) {
+                    file.close();
                     return ResultadoAgregar.NOMBRE_REPETIDO;
                 }
             }
-
             file.seek(file.length());
             file.writeInt(libro.getCodigo());
-            file.writeInt(libro.getIdLibreria()); // Escritura de la llave foránea
             file.writeUTF(StringUtils.formatearCadena(libro.getNombre(), 25));
             file.writeDouble(libro.getPrecio());
             file.writeBoolean(libro.isDisponible());
             file.writeUTF(StringUtils.formatearCadena(libro.getEstado(), 5));
-
+            file.close();
             return ResultadoAgregar.OK;
         } catch (Exception e) {
-            System.out.println("Error al adicionar libro: " + e);
-            return ResultadoAgregar.ERROR;
+            System.out.println("Error: " + e);
         }
+        return ResultadoAgregar.ERROR;
     }
-
-    public static Libro buscarLibro(int codigoBuscado) {
-        try (RandomAccessFile file = new RandomAccessFile(RUTA_ARCHIVO, "rw")) {
+    
+    public static Libro buscarLibro(int pCodigo){
+        int codigo;
+        String nombre, estado;
+        double precio;
+        boolean disponible;
+        Libro libro;
+        try {
+            RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
             while (file.getFilePointer() < file.length()) {
-                int codigo = file.readInt();
-                int idLibreria = file.readInt();
-                String nombre = file.readUTF().trim();
-                double precio = file.readDouble();
-                boolean disponible = file.readBoolean();
-                String estado = file.readUTF().trim();
-
-                if (codigoBuscado == codigo && estado.equals("ACTIV")) { 
-                    return new Libro(codigo, idLibreria, nombre, precio, disponible, estado);
+                codigo = file.readInt();
+                nombre = file.readUTF().trim();
+                precio = file.readDouble();
+                disponible = file.readBoolean();
+                estado = file.readUTF();
+                
+                if(pCodigo == codigo){
+                    libro = new Libro(codigo, nombre, precio, disponible, estado);
+                    file.close();
+                    return libro;
                 }
             }
+            file.close();
         } catch (Exception e) {
-            System.out.println("Error al buscar libro: " + e);
+            System.out.println("Error: " + e);
         }
         return null;
     }
-
-    public static boolean actualizarLibro(int codigoBuscado, double nuevoPrecio, boolean nuevaDisponibilidad) {
-        try (RandomAccessFile file = new RandomAccessFile(RUTA_ARCHIVO, "rw")) {
+    
+    // MÉTODO NUEVO: Conecta con el botón actualizar de la interfaz gráfica
+    public static boolean actualizarLibro(Libro libroModificado) {
+        try {
+            RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
             while (file.getFilePointer() < file.length()) {
-                int codigo = file.readInt();
-                file.readInt(); // idLibreria
-                file.readUTF(); // nombre
+                int codigo = file.readInt(); // Lee el código (avanza 4 bytes)
                 
-                long posAntesDeAtributos = file.getFilePointer();
-                file.readDouble(); // precio
-                file.readBoolean(); // disponible
-                String estado = file.readUTF();
-
-                if (codigo == codigoBuscado && estado.trim().equals("ACTIV")) {
-
-                    file.seek(posAntesDeAtributos);
-                    file.writeDouble(nuevoPrecio);
-                    file.writeBoolean(nuevaDisponibilidad);
-                    return true;
+                if (codigo == libroModificado.getCodigo()) {
+                    // El puntero está justo después del código. Sobrescribimos el resto de atributos.
+                    // Al usar StringUtils.formatearCadena se garantiza que los tamaños en bytes no se descuadren.
+                    file.writeUTF(StringUtils.formatearCadena(libroModificado.getNombre(), 25));
+                    file.writeDouble(libroModificado.getPrecio());
+                    file.writeBoolean(libroModificado.isDisponible());
+                    file.writeUTF(StringUtils.formatearCadena(libroModificado.getEstado(), 5));
+                    
+                    file.close();
+                    return true; // Actualización exitosa
+                } else {
+                    // Si no es el libro, pasamos al siguiente registro leyendo el resto de variables
+                    file.readUTF();
+                    file.readDouble();
+                    file.readBoolean();
+                    file.readUTF();
                 }
             }
+            file.close();
         } catch (Exception e) {
-            System.out.println("Error al actualizar libro: " + e);
+            System.out.println("Error al actualizar: " + e.getMessage());
         }
-        return false;
+        return false; // Libro no encontrado o error
+    }
+    
+    public static void aumentarValor(){
+        try{
+            RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
+            while(file.getFilePointer() < file.length()){
+                file.readInt();
+                file.readUTF();
+                double valorNuevo = file.readDouble() * 1.1 ;
+                file.seek(file.getFilePointer() - 8); // Se retrocede los 8 bytes del double para sobrescribir
+                file.writeDouble(valorNuevo);
+                file.readBoolean();
+                file.readUTF();
+            }
+            file.close(); // Siempre cerrar el archivo para liberar recursos
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
     }
 
-    public static boolean eliminarLibro(int codigoBuscado) {
-        try (RandomAccessFile file = new RandomAccessFile(RUTA_ARCHIVO, "rw")) {
+    public static List<Libro> getLibros(){
+        List<Libro> libros = new ArrayList<>(); // Permitido según las restricciones del proyecto
+        int codigo;
+        String nombre, estado;
+        double precio;
+        boolean disponible;
+        Libro libro;
+
+        try {
+            RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
             while (file.getFilePointer() < file.length()) {
-                int codigo = file.readInt();
+                codigo = file.readInt();
+                nombre = file.readUTF().trim();
+                precio = file.readDouble();
+                disponible = file.readBoolean();
+                estado = file.readUTF();
+
+                libro = new Libro(codigo, nombre, precio, disponible, estado);
+                libros.add(libro);
+            }
+            file.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
+
+        return libros;
+    }
+
+    public static int contarRegistros(){
+        try{
+            int contador = 0; 
+            RandomAccessFile file = new RandomAccessFile("data//libro.txt", "rw");
+            while (file.getFilePointer() < file.length()){
                 file.readInt();
                 file.readUTF();
                 file.readDouble();
                 file.readBoolean();
-                
-                long posAntesDeEstado = file.getFilePointer();
-                String estado = file.readUTF().trim();
-
-                if (codigo == codigoBuscado && estado.equals("ACTIV")) {
-                    file.seek(posAntesDeEstado);
-                    file.writeUTF(StringUtils.formatearCadena("INACT", 5)); // Eliminado lógico
-                    return true;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Error al eliminar libro: " + e);
-        }
-        return false;
-    }
-
-    public static List<Libro> getLibros() {
-        List<Libro> libros = new ArrayList<>(); 
-        try (RandomAccessFile file = new RandomAccessFile(RUTA_ARCHIVO, "rw")) {
-            while (file.getFilePointer() < file.length()) {
-                int codigo = file.readInt();
-                int idLibreria = file.readInt();
-                String nombre = file.readUTF().trim();
-                double precio = file.readDouble();
-                boolean disponible = file.readBoolean();
-                String estado = file.readUTF().trim();
-
-                if (estado.equals("ACTIV")) { 
-                    libros.add(new Libro(codigo, idLibreria, nombre, precio, disponible, estado));
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Error al listar libros: " + e);
-        }
-        return libros;
-    }
-
-    public static double calcularSumatoriaPrecios() {
-        double sumatoria = 0.0;
-        try (RandomAccessFile file = new RandomAccessFile(RUTA_ARCHIVO, "rw")) {
-            while (file.getFilePointer() < file.length()) {
-                file.readInt();
-                file.readInt();
                 file.readUTF();
-                double precio = file.readDouble();
-                file.readBoolean();
-                String estado = file.readUTF().trim();
-
-                if (estado.equals("ACTIV")) {
-                    sumatoria += precio;
-                }
+                contador ++;
             }
-        } catch (Exception e) {
-            System.out.println("Error al calcular sumatoria: " + e);
+            file.close();
+            return contador;
         }
-        return sumatoria;
-    }
+        catch (Exception e){
+            return -1;
+        }
+    } 
 }

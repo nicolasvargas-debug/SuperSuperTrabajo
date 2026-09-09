@@ -6,7 +6,7 @@ package pocLibro.Gui;
 
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import pocLibreria.Servicios.ServiciosLibro;
+import pocLibreria.Servicios.ServicioLibro;
 import poclibreria.Modelo.Libro;
 import pucLiberiaUtils.StringUtils;
 

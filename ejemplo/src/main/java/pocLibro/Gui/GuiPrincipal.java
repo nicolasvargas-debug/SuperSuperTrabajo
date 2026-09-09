@@ -5,22 +5,14 @@
 package pocLibro.Gui;
 
 import javax.swing.JOptionPane;
-<<<<<<< HEAD:ejemplo/src/main/java/poclibreria/gui/GuiPrincipal.java
-import pocLibreria.Servicios.ServiciosLibro;
-import poclibreria.gui.VentanaBuscar;
-import poclibreria.gui.VentanaAgregar;
-import poclibreria.gui.VentanaContarRegistro;
-import poclibreria.gui.VentanaEliminar;
-import poclibreria.gui.VentanaListado;
-=======
-import pocLibreria.Servicios.ServiciosLibreria;
 import pocLibro.Gui.VentanaBuscar;
 import pocLibro.Gui.VentanaAgregar;
 import pocLibro.Gui.VentanaContarRegistro;
 import pocLibro.Gui.VentanaEliminar;
 import pocLibro.Gui.VentanaListado;
->>>>>>> 54bbe114d8fc81fc3d631e5643cfb360d0f13972:ejemplo/src/main/java/pocLibro/Gui/GuiPrincipal.java
-
+import pocLibro.Gui.VentanaSumatoria;
+import pocLibro.Gui.VentanaActualizar;
+import pocLibro.Gui.VentanaGUIParcial;
 /**
  *
  * @author nikol

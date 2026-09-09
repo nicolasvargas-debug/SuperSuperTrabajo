@@ -8,9 +8,8 @@ public class Libro {
     private boolean disponible;
     private String estado;
 
-    public Libro(int codigo, int idLibreria, String nombre, double precio, boolean disponible, String estado) {
+    public Libro(int codigo, String nombre, double precio, boolean disponible, String estado) {
         this.codigo = codigo;
-        this.codigoLibreria = idLibreria; 
         this.nombre = nombre;
         this.precio = precio;
         this.disponible = disponible;
