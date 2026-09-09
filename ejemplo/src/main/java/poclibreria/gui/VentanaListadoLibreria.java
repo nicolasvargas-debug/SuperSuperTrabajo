@@ -45,17 +45,17 @@ public class VentanaListadoLibreria extends javax.swing.JFrame {
 
         tblLibrerias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nombre", "Direccion"
+                "Código", "Nombre", "Presupuesto", "Categoria", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -109,7 +109,7 @@ public class VentanaListadoLibreria extends javax.swing.JFrame {
                 libreria.getNombre(),
                 libreria.getPresupuesto(),
                 libreria.getCategoria(),
-                libreria.isDisponible() ? "Activa" : "Eliminada"
+                libreria.isEstado() ? "Activa" : "Eliminada"
             });
         }
     }//GEN-LAST:event_bntListar1ActionPerformed
