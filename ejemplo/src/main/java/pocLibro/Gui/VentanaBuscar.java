@@ -193,7 +193,7 @@ public class VentanaBuscar extends javax.swing.JFrame {
         strCodigo = TextCodigo.getText().trim();
         codigo = Integer.parseInt(strCodigo);
 
-        libro = ServiciosLibro.buscarLibro(codigo);
+        libro = serviciosLibro.buscarLibro(codigo);
 
         if (libro != null) {
             TextCodigo.setText(String.valueOf(libro.getCodigo()));
