@@ -3,24 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package poclibreria.gui;
+
+import java.io.RandomAccessFile;
+import java.util.RandomAccess;
 import javax.swing.JOptionPane;
 import poclibreria.Modelo.Libreria;
-import poclibreria.Modelo.Libro;
 import poclibreria.Servicios.ServiciosLibreria;
+
 /**
  *
- * @author USUARIO
+ * @author nikol
  */
-public class VentanaBuscarLibreria extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaBuscarLibreria.class.getName());
+public class VentanaEliminar extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaBuscarLibreria
+     * Creates new form VentanaEliminar
      */
-    public VentanaBuscarLibreria() {
+    public VentanaEliminar() {
         initComponents();
-        setLocationRelativeTo(this);
     }
 
     /**
@@ -32,30 +32,23 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         textCodigoLibreria = new javax.swing.JTextField();
         textNombre = new javax.swing.JTextField();
         textPresupuesto = new javax.swing.JTextField();
         textCategoria = new javax.swing.JTextField();
-        butSalir = new javax.swing.JButton();
-        ButBuscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        ButEliminar = new javax.swing.JButton();
         CheckDisponible = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
         CheckNoDisponible = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        butSalir1 = new javax.swing.JButton();
+        ButBuscar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setText("Buscar por codigo de libreria");
-
-        jLabel2.setText("Codigo libreria:");
-
-        jLabel3.setText("Nombre:");
-
-        jLabel4.setText("Presupuesto:");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel5.setText("Categoria:");
 
@@ -67,17 +60,40 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
 
         textCategoria.setEditable(false);
 
-        butSalir.setText("Salir");
-        butSalir.addActionListener(this::butSalirActionPerformed);
+        jLabel1.setText("Buscar por codigo de libreria");
 
-        ButBuscar.setText("Buscar");
-        ButBuscar.addActionListener(this::ButBuscarActionPerformed);
+        ButEliminar.setText("Eliminar");
+        ButEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButEliminarActionPerformed(evt);
+            }
+        });
 
         CheckDisponible.setText("Disponible");
         CheckDisponible.setEnabled(false);
 
+        jLabel3.setText("Nombre:");
+
         CheckNoDisponible.setText("No disponible");
         CheckNoDisponible.setEnabled(false);
+
+        jLabel4.setText("Presupuesto:");
+
+        butSalir1.setText("Salir");
+        butSalir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSalir1ActionPerformed(evt);
+            }
+        });
+
+        ButBuscar.setText("Buscar");
+        ButBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Codigo libreria:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,24 +102,25 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(butSalir)
+                    .addComponent(butSalir1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ButBuscar)
-                        .addGap(60, 60, 60))
+                        .addGap(41, 41, 41)
+                        .addComponent(ButEliminar)
+                        .addGap(31, 31, 31))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CheckDisponible)
@@ -112,9 +129,14 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textCodigoLibreria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(textCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 53, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(31, 31, 31)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(278, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,10 +144,8 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(textCodigoLibreria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(textCodigoLibreria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,29 +157,86 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(textCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(CheckDisponible)
                     .addComponent(CheckNoDisponible))
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(butSalir)
-                    .addComponent(ButBuscar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ButEliminar)
+                    .addComponent(ButBuscar)
+                    .addComponent(butSalir1))
+                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(46, Short.MAX_VALUE)
+                    .addComponent(jLabel10)
+                    .addGap(365, 365, 365)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ButEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButEliminarActionPerformed
+        String strCodigo = textCodigoLibreria.getText().trim();
+
+    if (strCodigo.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese el código de la librería a eliminar.");
+        return;
+    }
+
+    try {
+        int codigo = Integer.parseInt(strCodigo);
+        Libreria libreria = ServiciosLibreria.buscarLibreria(codigo);
+
+        if (libreria != null) {
+            RandomAccessFile file = new RandomAccessFile("data//libreria.txt", "rw");
+            while (file.getFilePointer() < file.length()) {
+                Long posInicioRegistro = file.getFilePointer();
+                codigo = file.readInt();
+                String nombre = file.readUTF().trim();
+                double presupuesto = file.readDouble();
+                String categoria = file.readUTF().trim();
+                boolean estado = file.readBoolean();
+
+                if (codigo == libreria.getCodigoLibreria()) {
+                    // Posición exacta del booleano (estado):
+                    // int(4) + UTF nombre(2 + bytes) + double(8) + UTF categoria(2 + bytes)
+                    long posBoolean = posInicioRegistro + 4 + (2 + nombre.getBytes().length) + 8 + (2 + categoria.getBytes().length);
+                    file.seek(posBoolean);
+                    file.writeBoolean(false);
+
+                    JOptionPane.showMessageDialog(this, "Estado de disponibilidad actualizado correctamente.");
+
+                    CheckDisponible.setSelected(false);
+                    CheckNoDisponible.setSelected(true);
+                    break;
+                }
+            }
+            file.close();
+        } else {
+            JOptionPane.showMessageDialog(this, "La librería no existe.");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El código debe ser un número entero válido.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+     
+    }//GEN-LAST:event_ButEliminarActionPerformed
+
+    private void butSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSalir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butSalir1ActionPerformed
+
     private void ButBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButBuscarActionPerformed
-                                         
-        String nombre, estado, strCodigo, strPrecio;
+          String nombre, estado, strCodigo, strPrecio;
         int codigo;
         boolean disponible;
         Libreria libreria;
 
-        strCodigo = textCodigoLibreria.getText().trim();       
+        strCodigo = textCodigoLibreria.getText().trim();
         codigo = Integer.parseInt(strCodigo);
 
         libreria = ServiciosLibreria.buscarLibreria(codigo);
@@ -169,7 +246,7 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
             textNombre.setText(libreria.getNombre());
             textPresupuesto.setText(String.valueOf(libreria.getPresupuesto()));
             textCategoria.setText(libreria.getCategoria());
-            if (libreria.isEstado()== true) {
+            if (libreria.isEstado() == true) {
                 CheckDisponible.setSelected(true);
                 CheckNoDisponible.setSelected(false);
             } else {
@@ -180,12 +257,7 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Libreria no encontrada!");
         }
-
     }//GEN-LAST:event_ButBuscarActionPerformed
-
-    private void butSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSalirActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_butSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,22 +275,33 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VentanaBuscarLibreria().setVisible(true));
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaEliminar().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButBuscar;
+    private javax.swing.JButton ButEliminar;
     private javax.swing.JCheckBox CheckDisponible;
     private javax.swing.JCheckBox CheckNoDisponible;
-    private javax.swing.JButton butSalir;
+    private javax.swing.JButton butSalir1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

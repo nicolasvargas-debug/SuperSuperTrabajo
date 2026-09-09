@@ -12,6 +12,10 @@ import pocLibro.Gui.VentanaEliminar;
 import pocLibro.Gui.VentanaListado;
 import pocLibro.Gui.VentanaSumatoria;
 import pocLibro.Gui.VentanaActualizar;
+import poclibreria.gui.VentanaAgregarLibreria;
+import poclibreria.gui.VentanaBuscarLibreria;
+import poclibreria.gui.VentanaListadoLibreria;
+
 
 
 
@@ -45,6 +49,10 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         Libreria = new javax.swing.JMenu();
+        SubMenuAgregar = new javax.swing.JMenuItem();
+        SubMenuBuscar = new javax.swing.JMenuItem();
+        SubMenuEliminar = new javax.swing.JMenuItem();
+        SubMenuListar = new javax.swing.JMenuItem();
         SubMenuAcerdaDe = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -111,6 +119,39 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(Libro);
 
         Libreria.setText("Libreria");
+
+        SubMenuAgregar.setText("Agregar");
+        SubMenuAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuAgregarActionPerformed(evt);
+            }
+        });
+        Libreria.add(SubMenuAgregar);
+
+        SubMenuBuscar.setText("Buscar");
+        SubMenuBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuBuscarActionPerformed(evt);
+            }
+        });
+        Libreria.add(SubMenuBuscar);
+
+        SubMenuEliminar.setText("Eliminar");
+        SubMenuEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuEliminarActionPerformed(evt);
+            }
+        });
+        Libreria.add(SubMenuEliminar);
+
+        SubMenuListar.setText("Listar");
+        SubMenuListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuListarActionPerformed(evt);
+            }
+        });
+        Libreria.add(SubMenuListar);
+
         jMenuBar1.add(Libreria);
 
         SubMenuAcerdaDe.setText("Ayuda");
@@ -142,7 +183,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        JOptionPane.showMessageDialog(this, "Desarrolladó por: Nicolas Vargas, Manuel Delvasto, Alejandra Reina");
+        JOptionPane.showMessageDialog(this, "Desarrolladó por: Nicolas Vargas, Manuel Delvasto, Alejandra Reina, Juan pablo acosta");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -180,11 +221,34 @@ public class GuiPrincipal extends javax.swing.JFrame {
         ventanaSumatoria.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void SubMenuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuAgregarActionPerformed
+    VentanaAgregar vAgregar = new VentanaAgregar();
+    vAgregar.setVisible(true);
+    }//GEN-LAST:event_SubMenuAgregarActionPerformed
+
+    private void SubMenuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuBuscarActionPerformed
+      VentanaBuscar vBuscar = new VentanaBuscar();
+      vBuscar.setVisible(true);
+    }//GEN-LAST:event_SubMenuBuscarActionPerformed
+
+    private void SubMenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SubMenuEliminarActionPerformed
+
+    private void SubMenuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuListarActionPerformed
+    VentanaListado vListado = new VentanaListado();
+    vListado.setVisible(true);
+    }//GEN-LAST:event_SubMenuListarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Libreria;
     private javax.swing.JMenu Libro;
     private javax.swing.JMenu SubMenuAcerdaDe;
+    private javax.swing.JMenuItem SubMenuAgregar;
+    private javax.swing.JMenuItem SubMenuBuscar;
+    private javax.swing.JMenuItem SubMenuEliminar;
+    private javax.swing.JMenuItem SubMenuListar;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
