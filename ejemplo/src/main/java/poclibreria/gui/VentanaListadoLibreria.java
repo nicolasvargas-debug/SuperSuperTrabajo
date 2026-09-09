@@ -5,8 +5,8 @@
 package poclibreria.gui;
 import javax.swing.table.DefaultTableModel;
 import poclibreria.Modelo.Libreria;
-import pocLibreria.Servicios.ServiciosLibreria;
 import java.util.List;
+import poclibreria.Servicios.ServiciosLibreria;
 
 /**
  *
@@ -96,12 +96,21 @@ public class VentanaListadoLibreria extends javax.swing.JFrame {
     }//GEN-LAST:event_bntListarActionPerformed
 
     private void bntListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntListar1ActionPerformed
-        List<Libreria> librerias = ServicioLibreria.getLibrerias();
-
+        List<Libreria> librerias = ServiciosLibreria.getLibrerias();;
+        
         DefaultTableModel model = (DefaultTableModel) tblLibrerias.getModel();
         model.setRowCount(0);
-        for(Libreria e : librerias){
-            model.addRow(new Object[]{e.getCodigo(),e.getNombre(), e.getDireccion()});
+        model.setColumnIdentifiers(new Object[]{"Codigo", "Nombre", "Presupuesto", "Categoria", "Estado"});
+        
+        
+       for (Libreria libreria : librerias) {
+            model.addRow(new Object[]{
+                libreria.getCodigoLibreria(),
+                libreria.getNombre(),
+                libreria.getPresupuesto(),
+                libreria.getCategoria(),
+                libreria.isDisponible() ? "Activa" : "Eliminada"
+            });
         }
     }//GEN-LAST:event_bntListar1ActionPerformed
 

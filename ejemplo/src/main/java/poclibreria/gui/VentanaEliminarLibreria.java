@@ -4,14 +4,14 @@
  */
 package poclibreria.gui;
 
-<<<<<<< HEAD
+
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
 import pocLibreria.Servicios.ServiciosLibro;
 import poclibreria.Modelo.Libro;
 
-=======
->>>>>>> 54bbe114d8fc81fc3d631e5643cfb360d0f13972
+
+
 /**
  *
  * @author nikol
@@ -277,7 +277,7 @@ public class VentanaEliminarLibreria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
+
     private void TextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextCodigoActionPerformed
