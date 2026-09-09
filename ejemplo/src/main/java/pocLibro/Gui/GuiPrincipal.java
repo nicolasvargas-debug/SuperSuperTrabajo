@@ -12,7 +12,7 @@ import pocLibro.Gui.VentanaEliminar;
 import pocLibro.Gui.VentanaListado;
 import pocLibro.Gui.VentanaSumatoria;
 import pocLibro.Gui.VentanaActualizar;
-import pocLibreria.gui.GuiPrincipalLibreria;
+
 
 public class GuiPrincipal extends javax.swing.JFrame {
     
@@ -22,7 +22,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
      */
     public GuiPrincipal() {
         initComponents();
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,71 +35,82 @@ public class GuiPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        MenuConsultas = new javax.swing.JMenu();
-        SubMenuBuscarLibro = new javax.swing.JMenuItem();
-        SubMenuListarLibro = new javax.swing.JMenuItem();
-        MenuReportes = new javax.swing.JMenu();
-        SubMenuActualizarLibro = new javax.swing.JMenuItem();
-        SubMenuSumatoriaLibros = new javax.swing.JMenuItem();
-        SubMenuContarRegistros = new javax.swing.JMenuItem();
+        Libro = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        Libreria = new javax.swing.JMenu();
         SubMenuAcerdaDe = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        menuGUIParcia = new javax.swing.JMenu();
-        subMenuGUIParcial = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        MenuGestiones = new javax.swing.JMenu();
-        SubMenuAgregarLibro = new javax.swing.JMenuItem();
-        SubMenuEliminarLibro = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        MenuConsultas.setText("Consultas");
+        Libro.setText("Libro");
 
-        SubMenuBuscarLibro.setText("Buscar Libro");
-        SubMenuBuscarLibro.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("Actualizar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuBuscarLibroActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        MenuConsultas.add(SubMenuBuscarLibro);
+        Libro.add(jMenuItem2);
 
-        SubMenuListarLibro.setText("Listar Libro");
-        SubMenuListarLibro.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setText("Agregar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuListarLibroActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        MenuConsultas.add(SubMenuListarLibro);
+        Libro.add(jMenuItem3);
 
-        jMenuBar1.add(MenuConsultas);
-
-        MenuReportes.setText("Reportes");
-
-        SubMenuActualizarLibro.setText("Actualizar Libro");
-        SubMenuActualizarLibro.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Buscar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuActualizarLibroActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        MenuReportes.add(SubMenuActualizarLibro);
+        Libro.add(jMenuItem4);
 
-        SubMenuSumatoriaLibros.setText("Sumatoria Precios");
-        SubMenuSumatoriaLibros.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem5.setText("Contar Registros");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuSumatoriaLibrosActionPerformed(evt);
+                jMenuItem5ActionPerformed(evt);
             }
         });
-        MenuReportes.add(SubMenuSumatoriaLibros);
+        Libro.add(jMenuItem5);
 
-        SubMenuContarRegistros.setText("Contar Registros");
-        SubMenuContarRegistros.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem6.setText("Eliminar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuContarRegistrosActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
-        MenuReportes.add(SubMenuContarRegistros);
+        Libro.add(jMenuItem6);
 
-        jMenuBar1.add(MenuReportes);
+        jMenuItem7.setText("Listar");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        Libro.add(jMenuItem7);
+
+        jMenuItem8.setText("Sumatoria");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        Libro.add(jMenuItem8);
+
+        jMenuBar1.add(Libro);
+
+        Libreria.setText("Libreria");
+        jMenuBar1.add(Libreria);
 
         SubMenuAcerdaDe.setText("Ayuda");
 
@@ -113,53 +124,13 @@ public class GuiPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(SubMenuAcerdaDe);
 
-        menuGUIParcia.setText("GUIParcial");
-
-        subMenuGUIParcial.setText("GUIParcial");
-        subMenuGUIParcial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subMenuGUIParcialActionPerformed(evt);
-            }
-        });
-        menuGUIParcia.add(subMenuGUIParcial);
-
-        jMenuItem2.setText("GuiLibreria");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        menuGUIParcia.add(jMenuItem2);
-
-        jMenuBar1.add(menuGUIParcia);
-
-        MenuGestiones.setText("Gestiones");
-
-        SubMenuAgregarLibro.setText("Agregar Libro");
-        SubMenuAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuAgregarLibroActionPerformed(evt);
-            }
-        });
-        MenuGestiones.add(SubMenuAgregarLibro);
-
-        SubMenuEliminarLibro.setText("Eliminar Libro");
-        SubMenuEliminarLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuEliminarLibroActionPerformed(evt);
-            }
-        });
-        MenuGestiones.add(SubMenuEliminarLibro);
-
-        jMenuBar1.add(MenuGestiones);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,71 +140,58 @@ public class GuiPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SubMenuAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuAgregarLibroActionPerformed
-        VentanaAgregar vAgregar = new VentanaAgregar();
-        vAgregar.setVisible(true);
-    }//GEN-LAST:event_SubMenuAgregarLibroActionPerformed
-
-    private void SubMenuEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuEliminarLibroActionPerformed
-        VentanaEliminar vEliminar = new VentanaEliminar();
-        vEliminar.setVisible(true);
-    }//GEN-LAST:event_SubMenuEliminarLibroActionPerformed
-
-    private void SubMenuContarRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuContarRegistrosActionPerformed
-        VentanaContarRegistro vContarRegistros = new VentanaContarRegistro();
-        vContarRegistros.setVisible(true);
-    }//GEN-LAST:event_SubMenuContarRegistrosActionPerformed
-
-    private void SubMenuBuscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuBuscarLibroActionPerformed
-        VentanaBuscar vBuscar = new VentanaBuscar();
-        vBuscar.setVisible(true);
-
-    }//GEN-LAST:event_SubMenuBuscarLibroActionPerformed
-
-    private void SubMenuSumatoriaLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuSumatoriaLibrosActionPerformed
-    VentanaSumatoria  vSumatoria = new VentanaSumatoria();
-    vSumatoria.setVisible(true);
-    }//GEN-LAST:event_SubMenuSumatoriaLibrosActionPerformed
-
-    private void SubMenuListarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuListarLibroActionPerformed
-     VentanaListado vListado = new VentanaListado();
-     vListado.setVisible(true);
-    }//GEN-LAST:event_SubMenuListarLibroActionPerformed
-
-    private void SubMenuActualizarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuActualizarLibroActionPerformed
-        VentanaActualizar vActualizar = new VentanaActualizar();
-        vActualizar.setVisible(true);
-    }//GEN-LAST:event_SubMenuActualizarLibroActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         JOptionPane.showMessageDialog(this, "Desarrolladó por: Nicolas Vargas, Manuel Delvasto, Alejandra Reina");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void subMenuGUIParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuGUIParcialActionPerformed
-
-    }//GEN-LAST:event_subMenuGUIParcialActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        GuiPrincipalLibreria
+        VentanaActualizar ventanaActualizar = new VentanaActualizar();
+        ventanaActualizar.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        VentanaAgregar ventanaAgregar = new VentanaAgregar();
+        ventanaAgregar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       VentanaBuscar ventanaBuscar = new VentanaBuscar();
+        ventanaBuscar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        VentanaEliminar ventanaEliminar = new VentanaEliminar();
+        ventanaEliminar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        VentanaListado ventanaListar = new VentanaListado();
+        ventanaListar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        VentanaContarRegistro ventanaContar = new VentanaContarRegistro();
+        ventanaContar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        VentanaSumatoria ventanaSumatoria = new VentanaSumatoria();
+        ventanaSumatoria.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu MenuConsultas;
-    private javax.swing.JMenu MenuGestiones;
-    private javax.swing.JMenu MenuReportes;
+    private javax.swing.JMenu Libreria;
+    private javax.swing.JMenu Libro;
     private javax.swing.JMenu SubMenuAcerdaDe;
-    private javax.swing.JMenuItem SubMenuActualizarLibro;
-    private javax.swing.JMenuItem SubMenuAgregarLibro;
-    private javax.swing.JMenuItem SubMenuBuscarLibro;
-    private javax.swing.JMenuItem SubMenuContarRegistros;
-    private javax.swing.JMenuItem SubMenuEliminarLibro;
-    private javax.swing.JMenuItem SubMenuListarLibro;
-    private javax.swing.JMenuItem SubMenuSumatoriaLibros;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenu menuGUIParcia;
-    private javax.swing.JMenuItem subMenuGUIParcial;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }
