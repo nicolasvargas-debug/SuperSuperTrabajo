@@ -42,9 +42,10 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
         textNombre = new javax.swing.JTextField();
         textPresupuesto = new javax.swing.JTextField();
         textCategoria = new javax.swing.JTextField();
-        textEstado = new javax.swing.JTextField();
         butSalir = new javax.swing.JButton();
         ButBuscar = new javax.swing.JButton();
+        CheckDisponible = new javax.swing.JCheckBox();
+        CheckNoDisponible = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,13 +67,17 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
 
         textCategoria.setEditable(false);
 
-        textEstado.setEditable(false);
-
         butSalir.setText("Salir");
         butSalir.addActionListener(this::butSalirActionPerformed);
 
         ButBuscar.setText("Buscar");
         ButBuscar.addActionListener(this::ButBuscarActionPerformed);
+
+        CheckDisponible.setText("Disponible");
+        CheckDisponible.setEnabled(false);
+
+        CheckNoDisponible.setText("No disponible");
+        CheckNoDisponible.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,18 +98,23 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textCodigoLibreria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ButBuscar)
-                        .addGap(60, 60, 60))))
+                        .addGap(60, 60, 60))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CheckDisponible)
+                                .addGap(41, 41, 41)
+                                .addComponent(CheckNoDisponible))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textCodigoLibreria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,12 +140,13 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(textEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(CheckDisponible)
+                    .addComponent(CheckNoDisponible))
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butSalir)
                     .addComponent(ButBuscar))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,13 +166,15 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
 
         if (libreria != null) {
             textCodigoLibreria.setText(String.valueOf(libreria.getCodigoLibreria()));
-            textNombre.setText(Libreria.getNombre());
-            textPrecio.setText(String.valueOf(libreria.getPresupuesto()));
-            textEstado.setText(libro.getEstado());
+            textNombre.setText(libreria.getNombre());
+            textPresupuesto.setText(String.valueOf(libreria.getPresupuesto()));
+            textCategoria.setText(libreria.getCategoria());
             if (libreria.isDisponible() == true) {
-                CheckSi.setSelected(true);
+                CheckDisponible.setSelected(true);
+                CheckNoDisponible.setSelected(false);
             } else {
-                CheckNo.setSelected(false);
+                CheckDisponible.setSelected(false);
+                CheckNoDisponible.setSelected(true);
             }
 
         } else {
@@ -201,6 +214,8 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButBuscar;
+    private javax.swing.JCheckBox CheckDisponible;
+    private javax.swing.JCheckBox CheckNoDisponible;
     private javax.swing.JButton butSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -210,7 +225,6 @@ public class VentanaBuscarLibreria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField textCategoria;
     private javax.swing.JTextField textCodigoLibreria;
-    private javax.swing.JTextField textEstado;
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textPresupuesto;
     // End of variables declaration//GEN-END:variables

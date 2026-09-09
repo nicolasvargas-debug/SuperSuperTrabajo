@@ -37,18 +37,27 @@
                           <Component id="jLabel5" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                           <Component id="butSalir" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="textNombre" alignment="0" pref="201" max="32767" attributes="0"/>
-                              <Component id="textEstado" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textCategoria" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textPresupuesto" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textCodigoLibreria" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="textNombre" alignment="0" pref="201" max="32767" attributes="0"/>
+                                      <Component id="textCategoria" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="textPresupuesto" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="textCodigoLibreria" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="butAgregar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="butAgregar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="checkDisponible" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="51" max="32767" attributes="0"/>
+                              <Component id="checkNoDisponible" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -57,7 +66,7 @@
                       <Component id="jLabel6" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,11 +96,14 @@
                   <Component id="textCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="checkDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkNoDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="butSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="butAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -133,14 +145,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textCodigoLibreria">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textCodigoLibreriaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textNombre">
     </Component>
     <Component class="javax.swing.JTextField" name="textPresupuesto">
     </Component>
     <Component class="javax.swing.JTextField" name="textCategoria">
-    </Component>
-    <Component class="javax.swing.JTextField" name="textEstado">
     </Component>
     <Component class="javax.swing.JButton" name="butSalir">
       <Properties>
@@ -157,6 +170,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAgregarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkDisponible">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Diponible"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkNoDisponible">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No Disponible"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

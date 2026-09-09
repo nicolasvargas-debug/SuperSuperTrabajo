@@ -4,7 +4,9 @@
  */
 package poclibreria.gui;
 
+import javax.swing.JOptionPane;
 import poclibreria.Modelo.Libreria;
+import poclibreria.Servicios.ServiciosLibreria;
 
 
 /**
@@ -42,9 +44,10 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
         textNombre = new javax.swing.JTextField();
         textPresupuesto = new javax.swing.JTextField();
         textCategoria = new javax.swing.JTextField();
-        textEstado = new javax.swing.JTextField();
         butSalir = new javax.swing.JButton();
         butAgregar = new javax.swing.JButton();
+        checkDisponible = new javax.swing.JCheckBox();
+        checkNoDisponible = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,11 +63,17 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
 
         jLabel6.setText("Agregar Libreria");
 
+        textCodigoLibreria.addActionListener(this::textCodigoLibreriaActionPerformed);
+
         butSalir.setText("Salir");
         butSalir.addActionListener(this::butSalirActionPerformed);
 
         butAgregar.setText("Agregar");
         butAgregar.addActionListener(this::butAgregarActionPerformed);
+
+        checkDisponible.setText("Diponible");
+
+        checkNoDisponible.setText("No Disponible");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,21 +91,27 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(butSalir))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                .addComponent(textEstado)
-                                .addComponent(textCategoria)
-                                .addComponent(textPresupuesto)
-                                .addComponent(textCodigoLibreria))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(butAgregar)
-                                .addGap(47, 47, 47))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                        .addComponent(textCategoria)
+                                        .addComponent(textPresupuesto)
+                                        .addComponent(textCodigoLibreria))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(butAgregar)
+                                        .addGap(47, 47, 47))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(checkDisponible)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                .addComponent(checkNoDisponible))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,10 +135,12 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(textCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(textEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(checkDisponible)
+                        .addComponent(checkNoDisponible)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butSalir)
                     .addComponent(butAgregar))
@@ -145,6 +162,67 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
         
     }//GEN-LAST:event_butAgregarActionPerformed
 
+    private void textCodigoLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCodigoLibreriaActionPerformed
+ 
+    String strCodigo, strPresupuesto, nombre, categoria;
+    int codigo;
+    double presupuesto;
+    Libreria libreria;
+    boolean disponible;
+
+    try {
+        // 1. Lectura de campos de texto
+        strCodigo = textCodigoLibreria.getText().strip();
+        nombre = textNombre.getText().strip();
+        strPresupuesto = textPresupuesto.getText().strip();
+        categoria = textCategoria.getText().strip();
+
+        // 2. Determinación del estado booleano mediante los CheckBox
+        if (checkDisponible.isSelected() && !checkNoDisponible.isSelected()) {
+            disponible = true;
+        } else if (!checkDisponible.isSelected() && checkNoDisponible.isSelected()) {
+            disponible = false;
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione únicamente una opción de disponibilidad (Sí o No).");
+            return;
+        }
+
+        // 3. Conversión de texto a tipos numéricos primitivos
+        codigo = Integer.parseInt(strCodigo);
+        presupuesto = Double.parseDouble(strPresupuesto);
+
+        // 4. Instanciación del objeto con los atributos del modelo
+        libreria = new Libreria(codigo, nombre, presupuesto, categoria, disponible);
+
+        // 5. Envío del objeto al servicio para su procesamiento
+        ServiciosLibreria.ResultadoAgregar resultado = ServiciosLibreria.adicionarLibreria(libreria);
+
+        switch (resultado) {
+            case OK:
+                JOptionPane.showMessageDialog(this, "La librería fue agregada exitosamente.");
+                break;
+            case CODIGO_REPETIDO:
+                JOptionPane.showMessageDialog(this, "El código ingresado ya existe.");
+                break;
+            case NOMBRE_REPETIDO:
+                JOptionPane.showMessageDialog(this, "El nombre de la librería ya existe.");
+                break;
+            default:
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al guardar los datos.");
+                break;
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Asegúrese de ingresar números válidos en el código y el presupuesto.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+
+        
+        
+        
+    }//GEN-LAST:event_textCodigoLibreriaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -153,6 +231,8 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAgregar;
     private javax.swing.JButton butSalir;
+    private javax.swing.JCheckBox checkDisponible;
+    private javax.swing.JCheckBox checkNoDisponible;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -161,7 +241,6 @@ public class VentanaAgregarLibreria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField textCategoria;
     private javax.swing.JTextField textCodigoLibreria;
-    private javax.swing.JTextField textEstado;
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textPresupuesto;
     // End of variables declaration//GEN-END:variables

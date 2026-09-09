@@ -41,20 +41,27 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textNombre" min="-2" pref="209" max="-2" attributes="0"/>
-                          <Component id="textCodigoLibreria" min="-2" pref="209" max="-2" attributes="0"/>
-                          <Component id="textPresupuesto" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
-                          <Component id="textCategoria" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
-                          <Component id="textEstado" min="-2" pref="209" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="ButBuscar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="CheckDisponible" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="CheckNoDisponible" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="textNombre" min="-2" pref="209" max="-2" attributes="0"/>
+                              <Component id="textCodigoLibreria" min="-2" pref="209" max="-2" attributes="0"/>
+                              <Component id="textPresupuesto" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                              <Component id="textCategoria" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -88,14 +95,15 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CheckDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CheckNoDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="butSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ButBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,11 +156,6 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textEstado">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="butSalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
@@ -168,6 +171,18 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButBuscarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="CheckDisponible">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Disponible"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="CheckNoDisponible">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No disponible"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -15,7 +15,7 @@ public class ServiciosLibreria {
 
     public enum ResultadoAgregar {
         OK,
-        ID_REPETIDO,
+        CODIGO_REPETIDO,
         NOMBRE_REPETIDO,
         ERROR
     }

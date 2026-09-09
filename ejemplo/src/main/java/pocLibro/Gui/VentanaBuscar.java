@@ -202,8 +202,10 @@ public class VentanaBuscar extends javax.swing.JFrame {
             TextEstado.setText(libro.getEstado());
             if (libro.isDisponible() == true) {
                 CheckSi.setSelected(true);
-            } else {
                 CheckNo.setSelected(false);
+            } else {
+                CheckSi.setSelected(false);
+                CheckNo.setSelected(true);
             }
 
         } else {
