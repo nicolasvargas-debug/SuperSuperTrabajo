@@ -12,10 +12,8 @@ import pocLibro.Gui.VentanaEliminar;
 import pocLibro.Gui.VentanaListado;
 import pocLibro.Gui.VentanaSumatoria;
 import pocLibro.Gui.VentanaActualizar;
-/**
- *
- * @author nikol
- */
+import pocLibreria.gui.GuiPrincipalLibreria;
+
 public class GuiPrincipal extends javax.swing.JFrame {
     
 
@@ -37,9 +35,6 @@ public class GuiPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        MenuGestiones = new javax.swing.JMenu();
-        SubMenuAgregarLibro = new javax.swing.JMenuItem();
-        SubMenuEliminarLibro = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         SubMenuBuscarLibro = new javax.swing.JMenuItem();
         SubMenuListarLibro = new javax.swing.JMenuItem();
@@ -51,28 +46,12 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         menuGUIParcia = new javax.swing.JMenu();
         subMenuGUIParcial = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        MenuGestiones = new javax.swing.JMenu();
+        SubMenuAgregarLibro = new javax.swing.JMenuItem();
+        SubMenuEliminarLibro = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        MenuGestiones.setText("Gestiones");
-
-        SubMenuAgregarLibro.setText("Agregar Libro");
-        SubMenuAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuAgregarLibroActionPerformed(evt);
-            }
-        });
-        MenuGestiones.add(SubMenuAgregarLibro);
-
-        SubMenuEliminarLibro.setText("Eliminar Libro");
-        SubMenuEliminarLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubMenuEliminarLibroActionPerformed(evt);
-            }
-        });
-        MenuGestiones.add(SubMenuEliminarLibro);
-
-        jMenuBar1.add(MenuGestiones);
 
         MenuConsultas.setText("Consultas");
 
@@ -144,7 +123,35 @@ public class GuiPrincipal extends javax.swing.JFrame {
         });
         menuGUIParcia.add(subMenuGUIParcial);
 
+        jMenuItem2.setText("GuiLibreria");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuGUIParcia.add(jMenuItem2);
+
         jMenuBar1.add(menuGUIParcia);
+
+        MenuGestiones.setText("Gestiones");
+
+        SubMenuAgregarLibro.setText("Agregar Libro");
+        SubMenuAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuAgregarLibroActionPerformed(evt);
+            }
+        });
+        MenuGestiones.add(SubMenuAgregarLibro);
+
+        SubMenuEliminarLibro.setText("Eliminar Libro");
+        SubMenuEliminarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuEliminarLibroActionPerformed(evt);
+            }
+        });
+        MenuGestiones.add(SubMenuEliminarLibro);
+
+        jMenuBar1.add(MenuGestiones);
 
         setJMenuBar(jMenuBar1);
 
@@ -206,6 +213,10 @@ public class GuiPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_subMenuGUIParcialActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        GuiPrincipalLibreria
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuConsultas;
@@ -221,6 +232,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem SubMenuSumatoriaLibros;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuGUIParcia;
     private javax.swing.JMenuItem subMenuGUIParcial;
     // End of variables declaration//GEN-END:variables
