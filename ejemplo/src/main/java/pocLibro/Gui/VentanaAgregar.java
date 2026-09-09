@@ -205,7 +205,7 @@ public class VentanaAgregar extends javax.swing.JFrame {
             codigo = Integer.parseInt(strCodigo);
             precio = Double.parseDouble(strPrecio);
 
-            libro = new Libro(codigo, nombre, precio, disponible, estado);
+            libro = new Libro(codigo, codigoLibreria, nombre, precio, disponible, estado);
             
             ServiciosLibro.ResultadoAgregar resultado = ServiciosLibro.adicionarLibro(libro);
 

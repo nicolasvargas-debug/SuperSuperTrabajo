@@ -18,13 +18,13 @@ public class ServiciosLibreria {
 
             file.seek(0);
             while (file.getFilePointer() < file.length()) {
-                int idLibreria = file.readInt();
+                int codigoLibreria = file.readInt();
                 String nombre = file.readUTF().trim();
                 file.readDouble();
                 file.readUTF();
                 file.readBoolean();
 
-                if (idLibreria == libreria.getIdLibreria()) {
+                if (codigoLibreria == libreria.getCodigoLibreria()) {
                     file.close();
                     return ResultadoAgregar.CODIGO_REPETIDO;
                 }
@@ -35,11 +35,11 @@ public class ServiciosLibreria {
             }
             
             file.seek(file.length());
-            file.writeInt(libreria.getIdLibreria());
+            file.writeInt(libreria.getCodigoLibreria());
             file.writeUTF(StringUtils.formatearCadena(libreria.getNombre(), 25));
             file.writeDouble(libreria.getPresupuesto());
-            file.writeUTF(StringUtils.formatearCadena(libreria.getCategoria(), 5)); // Asignamos 5 caracteres base
-            file.writeBoolean(libreria.isDisponible());
+            file.writeUTF(StringUtils.formatearCadena(libreria.getCategoria(), 5)); 
+            file.writeBoolean(libreria.isEstado());
             file.close();
             
             return ResultadoAgregar.OK;
@@ -49,8 +49,8 @@ public class ServiciosLibreria {
         return ResultadoAgregar.ERROR;
     }
 
-    public static Libreria buscarLibreria(int pIdLibreria) {
-        int idLibreria;
+    public static Libreria buscarLibreria(int pcodigoLibreria) {
+        int codigoLibreria;
         String nombre, categoria;
         double presupuesto;
         boolean estado;
@@ -59,14 +59,14 @@ public class ServiciosLibreria {
         try {
             RandomAccessFile file = new RandomAccessFile("data//libreria.txt", "rw");
             while (file.getFilePointer() < file.length()) {
-                idLibreria = file.readInt();
+                codigoLibreria = file.readInt();
                 nombre = file.readUTF().trim();
                 presupuesto = file.readDouble();
                 categoria = file.readUTF().trim();
                 estado = file.readBoolean();
 
-                if (pIdLibreria == idLibreria) {
-                    libreria = new Libreria(idLibreria, nombre, presupuesto, categoria, estado);
+                if (pcodigoLibreria == codigoLibreria) {
+                    libreria = new Libreria(codigoLibreria, nombre, presupuesto, categoria, estado);
                     file.close();
                     return libreria;
                 }
@@ -83,13 +83,13 @@ public class ServiciosLibreria {
         try {
             RandomAccessFile file = new RandomAccessFile("data//libreria.txt", "rw");
             while (file.getFilePointer() < file.length()) {
-                int idLibreria = file.readInt();
+                int codigoLibreria = file.readInt();
                 
-                if (idLibreria == libreriaModificada.getIdLibreria()) {
+                if (codigoLibreria == libreriaModificada.getCodigoLibreria()) {
                     file.writeUTF(StringUtils.formatearCadena(libreriaModificada.getNombre(), 25));
                     file.writeDouble(libreriaModificada.getPresupuesto());
                     file.writeUTF(StringUtils.formatearCadena(libreriaModificada.getCategoria(), 5));
-                    file.writeBoolean(libreriaModificada.isDisponible());
+                    file.writeBoolean(libreriaModificada.isEstado());
                     
                     file.close();
                     return true;
@@ -109,7 +109,7 @@ public class ServiciosLibreria {
 
     public static List<Libreria> getLibrerias() {
         List<Libreria> librerias = new ArrayList<>();
-        int idLibreria;
+        int codigoLibreria;
         String nombre, categoria;
         double presupuesto;
         boolean estado;
@@ -118,13 +118,13 @@ public class ServiciosLibreria {
         try {
             RandomAccessFile file = new RandomAccessFile("data//libreria.txt", "rw");
             while (file.getFilePointer() < file.length()) {
-                idLibreria = file.readInt();
+                codigoLibreria = file.readInt();
                 nombre = file.readUTF().trim();
                 presupuesto = file.readDouble();
                 categoria = file.readUTF().trim();
                 estado = file.readBoolean();
 
-                libreria = new Libreria(idLibreria, nombre, presupuesto, categoria, estado);
+                libreria = new Libreria(codigoLibreria, nombre, presupuesto, categoria, estado);
                 librerias.add(libreria);
             }
             file.close();
